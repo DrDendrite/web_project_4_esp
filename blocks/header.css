@@ -2,13 +2,11 @@
     width: 880px;
     height: 74px;
     margin: auto;
-    border: 1px red dotted;
     padding-top: 45px;
   }
   .header__title{
     width: 173px;
     height: 33px;
-    border: 1px red dotted; 
   }
   .header__line{
     margin-top: 41px;

@@ -1,0 +1,49 @@
+.elements{
+    width: 880px;
+    margin: auto;
+    margin-top: 40px; 
+    margin-bottom: 67px;
+}
+.elements__grid{
+    display: grid;
+    grid-template-columns: repeat(3, 282px);
+    grid-template-rows: repeat(2, 361px);
+    column-gap: 17px;
+    row-gap: 20px;
+}
+.elements__card{
+    display: flex;
+    flex-direction: column;
+}
+.elements__card-pic{
+    width: 282px;
+    height: 282px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.elements__card-box{
+    height: 79px;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.elements__card-box-title{
+    margin-left: 21px;
+    width: 213px;
+    font-size: 24px;
+    line-height: 100%;
+    font-weight: 900;
+}
+.elements__card-box-like{
+    width: 21px;
+    height: 19px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-image: url(/images/heart.svg);
+    background-color: transparent;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+}
