@@ -2,8 +2,7 @@
    max-width: 880px;
    display: flex;
    flex-direction: row;
-   margin-left: auto;
-   margin-right: auto;
+   margin: auto;
    margin-top: 40px;
 }
 .profile__pic{
@@ -13,12 +12,12 @@
 .profile__info{
     margin-left: 30px;
     display: grid;
-    grid-template-rows: 39px 22px;
+    grid-template-rows: 39px;
     grid-template-columns: 373px 24px;
     column-gap: 18px;
     row-gap: 13px;
     color: white;
-    height: 74px;
+    height: 39px;
     margin-top: auto;
     margin-bottom: auto;
 }
@@ -82,12 +81,15 @@
         margin-top: 30px;
         margin-left: 2px;
         grid-template-columns: 187px;
-        grid-template-rows: 30px 30px;
+        grid-template-rows: 39px 39px;
         column-gap: 5px;
+        row-gap: 5px;
         width: 246px;
     }
     .profile__name{
         width: 187px;
+        height: 20px;
+        padding-bottom: 0px;
         font-size: 21px;
     }
     .profile__add-button{
@@ -95,5 +97,49 @@
         margin-left: 0;
         width: 150px;
         margin-top: 70px;  
+    }
+}
+@media screen and (max-width: 879px) and (min-width: 320px){
+    .profile{
+        display: flex;
+        width: 282px;
+        height: 286px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .profile__pic{
+        margin-bottom: 26px;
+    }
+    .profile__info{
+        margin: auto;
+        margin-bottom: 36px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 282px;
+        height: 50px;
+    }
+    .profile__name{
+        margin: auto;
+        width: 224px;
+        font-size: 22px;
+    }
+    .profile__occupation{
+        margin: auto;
+        font-size: 14px;
+        margin-top: 0px;
+    }
+    .profile__edit-button{
+        position: absolute;
+        margin-left: 233px;
+    }
+    .profile__add-button{
+        background-image: url(/images/Add\ Button-mobile.png);
+        background-repeat: no-repeat;
+        background-color: transparent;
+        background-position: center;
+        cursor: pointer;
+        width: 282px;
+        margin: auto;
     }
 }

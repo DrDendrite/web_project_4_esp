@@ -19,3 +19,18 @@
       width: 480px;
     }
   }
+  @media screen and (max-width: 879px) and (min-width: 320px){
+    .header{
+      width: 320px;
+      height: 56px;
+    }
+    .header__line{
+      width: 320px;
+      margin-top: 0;
+    }
+    .header__title{
+      width: 126px;
+      margin-left: 27px;
+    }
+
+  }
