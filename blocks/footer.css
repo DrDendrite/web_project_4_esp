@@ -1,7 +1,6 @@
 .footer{
     width: 880px;
     margin: auto;
-    border: 1px red dotted;
     color: rgba(84, 84, 84, 1);
 }
 .footer__copyright{

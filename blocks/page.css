@@ -7,4 +7,5 @@
     /* here we've set a maximum page width */
     /* this ensures that all content is centered on screens wider than 1600px */
     background-color: rgba(0, 0, 0, 1);
+    margin: auto;
   }
