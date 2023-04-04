@@ -11,3 +11,11 @@
   .header__line{
     margin-top: 41px;
   }
+  @media screen and (max-width: 1279px) and (min-width: 880px){
+    .header{
+      width: 480px;
+    }
+    .header__line{
+      width: 480px;
+    }
+  }

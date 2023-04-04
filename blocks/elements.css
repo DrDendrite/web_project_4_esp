@@ -30,11 +30,15 @@
     border-bottom-right-radius: 10px;
 }
 .elements__card-box-title{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     margin-left: 21px;
     width: 213px;
     font-size: 24px;
     line-height: 100%;
     font-weight: 900;
+    font-family: inter-black;
 }
 .elements__card-box-like{
     width: 21px;
@@ -46,4 +50,25 @@
     background-position: center;
     border: none;
     cursor: pointer;
+}
+@media screen and (max-width: 1279px) and (min-width: 880px){
+    .elements{
+        width: 482px;
+    }
+    .elements__grid{
+        grid-template-columns: 232px 232px;
+        grid-template-rows: repeat(3, 313px);
+    }
+    .elements__card-pic{
+        width: 232px;
+        height: 232px;
+    }
+    .elements__card-box-title{
+        font-size: 17px;
+        margin: auto;
+        margin-right: 20px;
+        margin-left: 20px;
+        width: 151px;
+    }
+
 }
