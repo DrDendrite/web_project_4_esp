@@ -12,16 +12,28 @@
       <header class="header">
         <img
           class="header__title"
-          src="./images/Around the US Vector-header.png"
+          src="./images/Around_the_US_Vector-header.png"
           alt="Logo de Practicum"
         />
-        <img class="header__line" src="./images/Line.png" alt="linea de color gris que divide el titulo del resto de la pagina">
+        <img
+          class="header__line"
+          src="./images/Line.png"
+          alt="linea de color gris que divide el titulo del resto de la pagina"
+        />
       </header>
       <section class="profile">
-        <img class="profile__pic" src="./images/Avatar.png" alt="foto de perfil del usuario">
+        <img
+          class="profile__pic"
+          src="./images/Avatar.png"
+          alt="foto de perfil del usuario"
+        />
         <div class="profile__info">
           <h1 class="profile__name">Jacques Cousteau</h1>
-          <button class="profile__edit-button" type="button"></button>
+          <button
+            class="profile__edit-button"
+            type="button"
+            aria-label="edit"
+          ></button>
           <p class="profile__occupation">Explorador</p>
         </div>
         <button class="profile__add-button"></button>
@@ -29,45 +41,69 @@
       <section class="elements">
         <div class="elements__grid">
           <div class="elements__card">
-            <img class="elements__card-pic" src="./images/yosemite.jpg" alt="Rio del parque Yosemite">
+            <img
+              class="elements__card-pic"
+              src="./images/yosemite.jpg"
+              alt="Rio del parque Yosemite"
+            />
             <div class="elements__card-box">
-          <h2 class="elements__card-box-title">Valle de Yosemite</h2>
-          <button class="elements__card-box-like"></button>
+              <h2 class="elements__card-box-title">Valle de Yosemite.</h2>
+              <button class="elements__card-box-like"></button>
             </div>
           </div>
           <div class="elements__card">
-            <img class="elements__card-pic" src="./images/louise.png" alt="Rio del parque Yosemite">
+            <img
+              class="elements__card-pic"
+              src="./images/louise.png"
+              alt="Rio del parque Yosemite"
+            />
             <div class="elements__card-box">
-          <h2 class="elements__card-box-title">Lago Louise</h2>
-          <button class="elements__card-box-like"></button>
+              <h2 class="elements__card-box-title">Lago Louise</h2>
+              <button class="elements__card-box-like"></button>
             </div>
           </div>
           <div class="elements__card">
-            <img class="elements__card-pic" src="./images/montanas calvas.png" alt="Rio del parque Yosemite">
+            <img
+              class="elements__card-pic"
+              src="./images/montanas_calvas.png"
+              alt="Rio del parque Yosemite"
+            />
             <div class="elements__card-box">
-          <h2 class="elements__card-box-title">Montañas Calvas</h2>
-          <button class="elements__card-box-like"></button>
+              <h2 class="elements__card-box-title">Montañas Calvas.</h2>
+              <button class="elements__card-box-like"></button>
             </div>
           </div>
           <div class="elements__card">
-            <img class="elements__card-pic" src="./images/latemar.png" alt="Rio del parque Yosemite">
+            <img
+              class="elements__card-pic"
+              src="./images/latemar.png"
+              alt="Rio del parque Yosemite"
+            />
             <div class="elements__card-box">
-          <h2 class="elements__card-box-title">Latemar</h2>
-          <button class="elements__card-box-like"></button>
+              <h2 class="elements__card-box-title">Latemar</h2>
+              <button class="elements__card-box-like"></button>
             </div>
           </div>
           <div class="elements__card">
-            <img class="elements__card-pic" src="./images/vanoise.png" alt="Rio del parque Yosemite">
+            <img
+              class="elements__card-pic"
+              src="./images/vanoise.png"
+              alt="Rio del parque Yosemite"
+            />
             <div class="elements__card-box">
-          <h2 class="elements__card-box-title">Vanoise National Park</h2>
-          <button class="elements__card-box-like"></button>
+              <h2 class="elements__card-box-title">Vanoise National Park</h2>
+              <button class="elements__card-box-like"></button>
             </div>
           </div>
           <div class="elements__card">
-            <img class="elements__card-pic" src="./images/braies.png" alt="Rio del parque Yosemite">
+            <img
+              class="elements__card-pic"
+              src="./images/braies.png"
+              alt="Rio del parque Yosemite"
+            />
             <div class="elements__card-box">
-          <h2 class="elements__card-box-title">Lago di Braies</h2>
-          <button class="elements__card-box-like"></button>
+              <h2 class="elements__card-box-title">Lago di Braies</h2>
+              <button class="elements__card-box-like"></button>
             </div>
           </div>
         </div>
@@ -76,5 +112,37 @@
         <p class="footer__copyright">© 2021 Alrededor de los EEUU</p>
       </section>
     </section>
+    <div class="popup">
+      <div class="popup__content">
+        <form
+          class="popup__form popup__form_type_edit"
+          id="edit-profile-form"
+          name="profile-edit"
+        >
+          <h3 class="popup__title">Edit profile</h3>
+          <input
+            name="name"
+            placeholder="Jacques Cousteau"
+            type="text"
+            class="popup__form-input popup__form-input_type_name"
+          />
+          <input
+            name="occupation"
+            placeholder="Explorer"
+            type="text"
+            class="popup__form-input popup__form-input_type_occupation"
+          />
+          <button class="popup__save-button" type="submit" aria-label="save">
+            Guardar
+          </button>
+        </form>
+        <button
+          class="popup__close-button"
+          type="button"
+          aria-label="close"
+        ></button>
+      </div>
+    </div>
+    <script src="/scripts/script.js"></script>
   </body>
 </html>

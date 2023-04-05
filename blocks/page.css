@@ -1,11 +1,11 @@
 .page {
-    min-width: 320px;
-    /* we don't know how to make mobile versions of websites yet, */
-    /* so here we've set a minimum page width */
-    max-width: 1280px;
-    height: auto;
-    /* here we've set a maximum page width */
-    /* this ensures that all content is centered on screens wider than 1600px */
-    background-color: rgba(0, 0, 0, 1);
-    margin: auto;
-  }
+  min-width: 320px;
+  /* we don't know how to make mobile versions of websites yet, */
+  /* so here we've set a minimum page width */
+  max-width: 1280px;
+  height: auto;
+  /* here we've set a maximum page width */
+  /* this ensures that all content is centered on screens wider than 1600px */
+  background-color: rgba(0, 0, 0, 1);
+  margin: auto;
+}
