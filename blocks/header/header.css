@@ -4,18 +4,8 @@
   margin: auto;
   padding-top: 45px;
 }
-.header__title {
-  width: 173px;
-  height: 33px;
-}
-.header__line {
-  margin-top: 41px;
-}
 @media screen and (max-width: 1279px) and (min-width: 880px) {
   .header {
-    width: 480px;
-  }
-  .header__line {
     width: 480px;
   }
 }
@@ -23,13 +13,5 @@
   .header {
     width: 320px;
     height: 56px;
-  }
-  .header__line {
-    width: 320px;
-    margin-top: 0;
-  }
-  .header__title {
-    width: 126px;
-    margin-left: 27px;
   }
 }
