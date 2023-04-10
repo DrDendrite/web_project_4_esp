@@ -1,25 +1,25 @@
 .elements__card-box-title {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    margin-left: 21px;
-    width: 213px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-left: 21px;
+  width: 213px;
+  font-size: 24px;
+  line-height: 100%;
+  font-weight: 900;
+  font-family: inter-black;
+}
+@media screen and (max-width: 1279px) and (min-width: 880px) {
+  .elements__card-box-title {
+    font-size: 17px;
+    margin: auto;
+    margin-right: 20px;
+    margin-left: 20px;
+    width: 151px;
+  }
+}
+@media screen and (max-width: 879px) and (min-width: 320px) {
+  .elements__card-box-title {
     font-size: 24px;
-    line-height: 100%;
-    font-weight: 900;
-    font-family: inter-black;
   }
-  @media screen and (max-width: 1279px) and (min-width: 880px){
-    .elements__card-box-title {
-        font-size: 17px;
-        margin: auto;
-        margin-right: 20px;
-        margin-left: 20px;
-        width: 151px;
-      }
-  }
-  @media screen and (max-width: 879px) and (min-width: 320px){
-    .elements__card-box-title {
-        font-size: 24px;
-      }
-  }
+}

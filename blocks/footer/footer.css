@@ -11,8 +11,8 @@
     padding-bottom: 50px;
   }
 }
-@media screen and (max-width: 879px) and (min-width: 320px){
-  .footer{
-  width: 320px;
+@media screen and (max-width: 879px) and (min-width: 320px) {
+  .footer {
+    width: 320px;
   }
 }
