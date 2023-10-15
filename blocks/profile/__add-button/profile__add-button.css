@@ -18,7 +18,8 @@
         grid-column: 2;
         padding: auto;
         width: 282px;
-        margin-left: 70px;
+        margin-left: -32px;
+        margin-top: 80px;
         background-image: url(/images/Add-Button-mobile.png);
       }
   }

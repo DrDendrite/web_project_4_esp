@@ -1,0 +1,16 @@
+.element__card-info{
+    margin-top: -20px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    background-color: white;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    }
+    
+    @media screen and (max-width: 879px) and (min-width: 320px) {
+        .element__card-info{
+            width: 282px;
+           
+        }
+    }

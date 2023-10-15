@@ -1,0 +1,16 @@
+.element__card-remove{
+    position: relative;
+    left: 253px;
+    top: 40px;
+    filter: brightness(0.8);
+    width:20px;
+    height: 22px;
+    border-radius: 5px; 
+    
+}
+
+@media screen and (min-width: 320px) and (max-width: 879px){
+    .element__card-remove{
+        top: 10px;
+    }   
+}
