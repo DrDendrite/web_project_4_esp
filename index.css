@@ -28,6 +28,13 @@
 @import url(./blocks/elements/element/__card-remove/element__card-remove.css);
 @import url(./blocks/elements/element/__card-pic/element__card-pic.css);
 
+@import url(./blocks/elements/element/__card-info/element__card-info.css);
+@import url(./blocks/elements/element/__card-name/element__card-name.css);
+@import url(./blocks/elements/element/__card-like/element__card-like.css);
+@import url(./blocks/elements/element/__card-like/-active/element__card-like-active.css);
+@import url(./blocks/elements/element/__card-remove/element__card-remove.css);
+@import url(./blocks/elements/element/__card-pic/element__card-pic.css);
+
 @import url(./blocks/footer/footer.css);
 @import url(./blocks/footer/__copyright/copyright.css);
 
