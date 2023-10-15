@@ -1,0 +1,22 @@
+.element__card-like{
+    border: none;
+    background-color: white;
+    width: 21px;
+    height: 19px;
+    align-self: center;
+    margin-right: 17px;
+    position: absolute;
+    right: 1px;
+    top:29px;
+    z-index: 0;
+}
+@media screen and (max-width: 1279px) and (min-width: 880px) {
+    .element__card-like{
+        width: 21px;
+        height: 19px;
+        top: 29px;
+        right: 1px;
+    }
+    
+}
+

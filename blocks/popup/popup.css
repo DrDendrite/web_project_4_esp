@@ -4,6 +4,7 @@
   bottom: 0;
   right: 0;
   top: 0;
+  max-height: 1176px;
   transition: opacity 0.3s ease-out;
   background-color: rgba(0, 0, 0, 0.5);
   align-items: center;

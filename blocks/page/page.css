@@ -1,7 +1,15 @@
 .page {
   min-width: 320px;
   max-width: 1280px;
+<<<<<<< HEAD
   height: auto;
+=======
+  /* here we've set a maximum page width */
+  /* this ensures that all content is centered on screens wider than 1600px */
+>>>>>>> develope
   background-color: rgba(0, 0, 0, 1);
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  height: max-content;
 }
+ 

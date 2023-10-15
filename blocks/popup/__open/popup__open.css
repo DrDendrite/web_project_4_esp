@@ -1,3 +1,24 @@
 .popup_open {
+<<<<<<< HEAD
   display: flex;
 }
+=======
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.85);
+    opacity: 1;
+    transition: all 0.5s;
+    position: fixed;
+  }
+  @media screen and (max-width: 1279px) and (min-width: 880px) {
+    .popup_open {
+      width: 1024px;
+    }
+  }
+
+  @media screen and (max-width: 879px) and (min-width: 320px) {
+    .popup_open {
+     width: 320px;
+    }
+    
+  }
+>>>>>>> develope

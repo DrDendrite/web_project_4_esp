@@ -1,0 +1,30 @@
+.element__card-pic{
+    width: 100%;
+    height: 282px;
+    z-index: 1;
+    border-radius: 20px;
+}
+
+.element__card-pic:hover{
+    cursor: pointer;
+}
+@media screen and (max-width: 1279px) and (min-width: 880px) {
+    .element__card-pic{
+        width: 282px;
+        height: 282px;
+    }
+    
+}
+    
+
+@media screen and (max-width: 879px) and (min-width: 320px) {
+    .element__card-pic{
+        margin-top: -28px;
+        width: 282px;
+        height: 282px;
+    
+    }
+    
+
+    
+}
