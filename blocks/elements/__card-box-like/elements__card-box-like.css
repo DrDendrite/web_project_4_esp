@@ -1,0 +1,20 @@
+.elements__card-box-like {
+  width: 21px;
+  height: 19px;
+  margin-top: 20px;
+  background-image: url(../../../../web_project_4_esp/images/heart.svg);
+  background-color: transparent;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+}
+@media screen and (max-width: 1279px) and (min-width: 880px) {
+  .elements__card-box-like {
+    margin-top: 25px;
+  }
+}
+@media screen and (max-width: 879px) and (min-width: 320px) {
+  .elements__card-box-like {
+    margin-top: 20px;
+  }
+}

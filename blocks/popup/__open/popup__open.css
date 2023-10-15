@@ -1,4 +1,8 @@
 .popup_open {
+<<<<<<< HEAD
+  display: flex;
+}
+=======
     display: flex;
     background-color: rgba(0, 0, 0, 0.85);
     opacity: 1;
@@ -17,3 +21,7 @@
     }
     
   }
+<<<<<<< HEAD
+>>>>>>> develope
+=======
+>>>>>>> develope

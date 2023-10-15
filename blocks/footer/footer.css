@@ -13,9 +13,18 @@
     margin-right: auto;
   }
 }
+<<<<<<< HEAD
+@media screen and (max-width: 879px) and (min-width: 320px) {
+  .footer {
+    width: 320px;
+=======
 @media screen and (max-width: 879px) and (min-width: 320px){
   .footer{
   width: 320px;
   margin: auto;
+<<<<<<< HEAD
+>>>>>>> develope
+=======
+>>>>>>> develope
   }
 }
