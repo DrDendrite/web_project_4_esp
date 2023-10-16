@@ -10,7 +10,7 @@
     width: 481px;
     height: 270px;
     display: grid;
-    grid-template-columns: 120px 325px 27px;
+    grid-template-columns: 120px 270px 27px;
     grid-template-rows: 120px 150px;
     column-gap: 10px;
   }
