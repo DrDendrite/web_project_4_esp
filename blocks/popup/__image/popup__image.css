@@ -69,20 +69,20 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .popup__image-pop-up {
+  .popupimage__pop-up {
     display: flex;
     width: 240px;
     height: 299px;
     border-radius: 20px;
    } 
-   .popup__image-opened {
+   .popupimage__opened {
     display: grid;
     grid-template-columns: 240px;
 }
-.popup__image-close{
+.popupimage__close{
     left: 210px;
 }
-.popup__image-title{
+.popupimage__title{
     display: flex;
     justify-content: center;
     font-size: 12px;
