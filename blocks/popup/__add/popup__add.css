@@ -73,9 +73,6 @@
 }
 
 @media screen and (max-width: 879px) and (min-width: 320px) {
-    .add_open {
-        width: 320px;
-    }
     .form{
         width: 282px;
     }
