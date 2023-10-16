@@ -1,8 +1,12 @@
 .popup__close-button {
 <<<<<<< HEAD
+<<<<<<< HEAD
   background-image: url(/images/Close-Icon.png);
 =======
   background-image: url(../../../../web_project_4_esp/images/Close-Icon.png);
+>>>>>>> taylor
+=======
+  background-image: url(../../.././images/Close-Icon.png);
 >>>>>>> taylor
   width: 40px;
   height: 40px;
@@ -22,6 +26,7 @@
   .popup__close-button {
     width: 26px;
     height: 26px;
+<<<<<<< HEAD
     right: 0;
 <<<<<<< HEAD
     background-image: url(/images/Close-Icon.png);
@@ -30,13 +35,19 @@
 >>>>>>> taylor
     width: 40px;
     height: 40px;
+=======
+    right: 5px;
+    background-image: url(../../.././images/Close-Icon.png);
+>>>>>>> taylor
     background-color: transparent;
     background-repeat: no-repeat;
     border: none;
     background-size: cover;
     top: -45px;
-    right: -45px;
     position: absolute;
-
   }
+  .popup__close-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
 }
