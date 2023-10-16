@@ -6,7 +6,6 @@
   font-weight: 500;
   font-size: 42px;
   line-height: 94%;
-  font-family: inter-medium;
 }
 @media screen and (max-width: 1279px) and (min-width: 880px) {
   .profile__name {
