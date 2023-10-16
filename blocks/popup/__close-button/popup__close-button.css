@@ -1,6 +1,4 @@
 .popup__close-button {
-<<<<<<< HEAD
-<<<<<<< HEAD
   background-image: url(../../../../web_project_4_esp/images/Close-Icon.png);
   width: 40px;
   height: 40px;
@@ -21,10 +19,7 @@
     width: 26px;
     height: 26px;
     right: 0;
-=======
-=======
->>>>>>> develope
-    background-image: url(/images/Close-Icon.png);
+    background-image: url(../../../../web_project_4_esp/images/Close-Icon.png);
     width: 40px;
     height: 40px;
     background-color: transparent;
@@ -34,6 +29,6 @@
     top: -45px;
     right: -45px;
     position: absolute;
->>>>>>> develope
+
   }
 }
