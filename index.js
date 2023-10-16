@@ -110,14 +110,14 @@ const cardPic = document.querySelectorAll(".element");
 const openPic = document.querySelectorAll(".element__card-pic");
 const trueName = document.querySelectorAll(".element__card-name");
 
-const closePic = document.querySelector(".popup__image-close");
+const closePic = document.querySelector(".popupimage__close");
 
-const modalImage = document.querySelector(".popup__image");
+const modalImage = document.querySelector(".popupimage");
 const elementName = document.querySelector(".element");
 
-const imageName = document.querySelector(".popup__image-title");
+const imageName = document.querySelector(".popupimage__title");
 
-const img = modalImage.querySelector(".popup__image-pop-up");
+const img = modalImage.querySelector(".popupimage__pop-up");
 
 // cerrar imagen con click en la X
 closePic.addEventListener("click", function () {

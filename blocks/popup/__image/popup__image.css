@@ -1,4 +1,4 @@
-.popup__image{
+.popupimage{
     display: flex;
     left: 0;
     bottom: 0;
@@ -12,16 +12,16 @@
     position: absolute;
     visibility: hidden;
 }
-.popup__image-opened {
+.popupimage__opened {
     display: grid;
 }
-.popup__image-pop-up {
+.popupimage__pop-up {
     max-width: 816px;
     max-height: 540px;
     border-radius: 20px;
     
 }
-.popup__image-close{
+.popupimage__close{
     width: 40px;
     height: 40px;
     background-color: transparent;
@@ -44,7 +44,7 @@
     justify-content: center;
     position: fixed;
 }
-.popup__image-title{
+.popupimage__title{
     align-self: start;
     font: inter;
     font-weight: 400;
@@ -54,11 +54,11 @@
 }
 
 @media screen and (max-width: 1279px) and (min-width: 880px) {
-    .popup__image-pop-up {
+    .popupimage__pop-up {
         max-width: 540px;
         max-height: 816px;
     }
-    .popup__image-close{
+    .popupimage__close{
         left: 500px;
     }
 }
