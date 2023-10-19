@@ -1,8 +1,5 @@
 .page {
   min-width: 320px;
-  max-width: 1280px;
   background-color: rgba(0, 0, 0, 1);
-  margin-left: auto;
-  margin-right: auto;
-  height: 100%;
+
 }

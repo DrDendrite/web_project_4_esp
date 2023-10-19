@@ -28,7 +28,7 @@
     padding-left: 0;
     padding-top: 0;
     grid-template-columns: repeat(1, 282px);
-    grid-template-rows: repeat(6, 361px);
+    grid-template-rows: repeat(6, 360px);
     margin-bottom: 0;
   }
 }

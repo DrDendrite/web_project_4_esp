@@ -1,11 +1,13 @@
 .profile__name {
   margin: 0;
   width: 415px;
-  height: 39px;
-  font-family: inter;
+  height: 50px;
+  font-family: inter-medium;
   font-weight: 500;
   font-size: 42px;
   line-height: 94%;
+  white-space: nowrap;
+  overflow: auto;
 }
 @media screen and (max-width: 1279px) and (min-width: 880px) {
   .profile__name {
@@ -18,8 +20,6 @@
 }
 @media screen and (max-width: 879px) and (min-width: 320px) {
   .profile__name {
-    display: flex;
-    justify-content: center;
     margin: auto;
     width: 224px;
     font-size: 22px;

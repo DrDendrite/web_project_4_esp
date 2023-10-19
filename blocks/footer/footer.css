@@ -1,6 +1,7 @@
 .footer {
-  width: 880px;
-  margin-left: 214px;
+  display: flex;
+  width: 830px;
+  margin: auto;
   color: rgba(84, 84, 84, 1);
 }
 @media screen and (max-width: 1279px) and (min-width: 880px) {

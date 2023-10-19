@@ -75,20 +75,17 @@ initialCards.forEach(function (element, i) {
 // agregar tarjeta
 function addCard (name, link) {
     const template = document.querySelector(".template").content;
-let card = template.querySelector(".element").cloneNode(true);
+const card = template.querySelector(".element").cloneNode(true);
 const removeButton = card.querySelector(".element__card-remove");
 const likeButton = card.querySelector(".element__card-like-active");
  removeButton.addEventListener("click", function () {
     card.remove();
-    console.log("se borró tarjeta");
 });
 likeButton.addEventListener("click", function () {
 
     likeButton.classList.toggle("element__card-like-active-off");
-    console.log("se dio like");
 });
 
-console.log(card);
 // abrir imagen
 let nameD = card.querySelector(".element__card-name");
 let imagenD = card.querySelector(".element__card-pic");
@@ -97,15 +94,13 @@ imagenD.addEventListener("click", function () {
 
     img.src = link;
     imageName.textContent = name;
-    console.log("se abrió ventana");
+    imageName.alt = name;
     });
 
 nameD.textContent = name; 
-imagenD.setAttribute("src", "" + link); 
+imagenD.src = link; 
 return card  ;
 }
-
-
 const cardPic = document.querySelectorAll(".element");
 const openPic = document.querySelectorAll(".element__card-pic");
 const trueName = document.querySelectorAll(".element__card-name");
@@ -122,17 +117,13 @@ const img = modalImage.querySelector(".popupimage__pop-up");
 // cerrar imagen con click en la X
 closePic.addEventListener("click", function () {
 modalImage.classList.toggle("popup__image-active");
-console.log("se cerró ventana");
 });
-
 // cerrar imagen con click en el fondo
 modalImage.addEventListener("click", function (evt) {
     if (evt.target === modalImage) {
         modalImage.classList.toggle("popup__image-active");
-        console.log("se cerró ventana");
-    }
+      }
 });
-
 // cerrar imagen, formulario y registro con escape    
 document.addEventListener("keydown", function (evt) {
     if (evt.key === "Escape" && modalImage.classList.contains("popup__image-active") ) {
@@ -143,7 +134,6 @@ document.addEventListener("keydown", function (evt) {
         console.log("se cerró registro");
 }else if (evt.key === "Escape" && addPopup.classList.contains("add_open") ) {
         addPopup.classList.remove("add_open");
-        console.log("se cerró formulario"); 
 }
 });
 // abrir registro
@@ -158,7 +148,6 @@ addButon.addEventListener("click", () => {
   addPopup.addEventListener("click", (evt) => {
     if (evt.target === addPopup) {
       addPopup.classList.toggle("add_open");
-      console.log("se cerró formulario");
     } 
   });
   // cerrar registro con escape
@@ -167,22 +156,22 @@ addButon.addEventListener("click", () => {
   // Get input values
     const titleValue = addNameInput.value;
     const linkValue = addLinkInput.value;
+
   
     if (titleValue && linkValue) {
       // Create a new element
-        const newCard = addCard(titleValue, linkValue);
+        const newCard = addCard(titleValue, linkValue,);
         cardContent.prepend(newCard);
 
   
       // Clear input values
       addNameInput.value = "";
       addLinkInput.value = "";
+      
   
       // Close the form popup
       const addPopup = document.querySelector(".add");
       addPopup.classList.remove("add_open");
-      console.log("Nueva Tarjeta agregada!");
     } else {
-      console.log("Please enter both title and image URL.");
     }
   });

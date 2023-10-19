@@ -1,16 +1,14 @@
 .popupimage{
-    display: flex;
     left: 0;
     bottom: 0;
     right: 0;
     top: 0;
     max-height: 1176px;
-    transition: opacity 0.3s ease-out;
     background-color: rgba(0, 0, 0, 0.5);
     align-items: center;
     justify-content: center;
-    position: absolute;
-    visibility: hidden;
+    display: none;
+    transition: opacity 10s ease-in-out;
 }
 .popupimage__opened {
     display: grid;
@@ -19,7 +17,7 @@
     max-width: 816px;
     max-height: 540px;
     border-radius: 20px;
-    
+    transition: opacity 10s ease-in-out;
 }
 .popupimage__close{
     width: 40px;
@@ -43,6 +41,7 @@
     align-items: center;
     justify-content: center;
     position: fixed;
+    transition: opacity 10s ease-in-out;
 }
 .popupimage__title{
     align-self: start;

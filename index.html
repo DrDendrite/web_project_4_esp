@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="./index.css"/>
-    <link rel="stylesheet" href="./vendor/fonts/fonts.css"/>
+    <link rel="stylesheet" href="./pages/index.css"/>
     <title>Around Mexico</title>
   </head>
   <body>
@@ -40,6 +39,7 @@
         <p class="footer__copyright">© 2021 Carlos Pineda</p>
       </section>
     </section>
+
     <div class="popup">
       <div class="popup__content">
         <form
@@ -100,21 +100,13 @@
     </div>
     <template class="template">
       <li class="element">
-        <div class="element__card-remove">
-          <img src="./images/remove.svg" alt="icono de basurero" />
-        </div>
-        <img
-          src=" "
-          class="element__card-pic"
-          alt="fotografía del valle de yosemite."/>
+     
+        <img class="element__card-remove" src="./images/remove.svg" alt="icono de basurero" />
+    
+        <img src=" " class="element__card-pic" alt="fotografía del valle de yosemite."/>
         <div class="element__card-info">
           <h3 class="element__card-name"></h3>
-          <button class="element__card-like">
-            <img
-              class="element__card-like-active"
-              src="./images/heart.png"
-              alt="icono de like"/>
-          </button>
+            <img class="element__card-like-active"  src="./images/heart.png" alt="icono de like"/>
         </div>
       </li>
     </template>
@@ -127,6 +119,6 @@
       </div>
     </div>
 
-    <script src="index.js"></script>
+    <script src="./pages/index.js"></script>
   </body>
 </html>
