@@ -15,8 +15,10 @@ function closePopup() {
   profileEditPopup.classList.remove("popup_open");
 }
 profileEditButton.addEventListener("click", () => {
-  profileNameInput.value = profileNameEl.textContent;
-  profileOccupationInput.value = profileOccupationEl.textContent;
+  profileNameInput.value = '';
+  profileOccupationInput.value = '';
+  saveButtonInactive.disabled = true;
+  saveButtonInactive.style.backgroundColor = '#ffffff';
   openPopup();
 });
 
@@ -175,3 +177,61 @@ addButon.addEventListener("click", () => {
     } else {
     }
   });
+
+  const editProfileForm = document.getElementById('edit-profile-form');
+  const nameInput = document.querySelector('.popup__form-input_type_name');
+  const occupationInput = document.querySelector('.popup__form-input_type_occupation');
+  const saveButton = document.querySelector('.popup__save-button');
+  const saveButtonInactive = document.querySelector('.popup__save-button_inactive');
+  
+  // Función para mostrar mensajes de error
+  function showError(input, errorMessage) {
+    const errorSpan = input.nextElementSibling;
+    errorSpan.textContent = errorMessage;
+    errorSpan.style.color = 'red';
+  }
+  
+  // Función para ocultar mensajes de error
+  function hideError(input) {
+    const errorSpan = input.nextElementSibling;
+    errorSpan.textContent = '';
+  }
+  
+  // Función para validar el formulario
+  function validateForm() {
+    // Validar campo de nombre
+    if (nameInput.value.length < 2 || nameInput.value.length > 40) {
+      showError(nameInput, 'El nombre debe contener entre 2 y 40 caracteres.');
+      saveButtonInactive.style.backgroundColor = '#ffffff';
+      saveButtonInactive.disabled = true;
+    } else {
+      hideError(nameInput);
+      saveButton.style.backgroundColor = '#000000';
+      saveButton.disabled = false;
+    }
+  
+    // Validar campo de ocupación
+    if (occupationInput.value.length < 2 || occupationInput.value.length > 200) {
+      showError(occupationInput, 'La ocupación debe contener entre 2 y 200 caracteres.');
+      saveButtonInactive.style.backgroundColor = '#ffffff';
+      saveButtonInactive.disabled = true;
+    } else {
+      hideError(occupationInput);
+      saveButton.style.backgroundColor = '#000000';
+      saveButton.disabled = false; 
+    }
+  }
+
+  // Agregar evento input a los campos del formulario
+  nameInput.addEventListener('input', validateForm);
+  occupationInput.addEventListener('input', validateForm);
+  
+  // Agregar evento submit al formulario para evitar el envío si hay errores
+  editProfileForm.addEventListener('submit', function(event) {
+    if (!nameInput.validity.valid || !occupationInput.validity.valid) {
+      event.preventDefault();
+    }
+  });
+  
+  // Validar el formulario al cargar la página
+  validateForm(); 

@@ -9,6 +9,21 @@
   line-height: 17px;
   margin-bottom: 38px;
 }
+.popup__form-input-error-name{
+  color: red;
+  font-size: 12px;
+  line-height: 15px;
+  margin-top: 145px;
+  position: absolute;
+}
+.popup__form-input-error-occupation{
+  color: red;
+  font-size: 12px;
+  line-height: 15px;
+  position: absolute;
+  margin-top: 210px;
+
+}
 
 
 @media screen and (max-width: 879px) and (min-width: 320px) {

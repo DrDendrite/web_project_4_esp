@@ -49,16 +49,18 @@
           <h3 class="popup__title">Edit profile</h3>
           <input
             name="name"
-            placeholder="Jacques Cousteau"
+            placeholder="Ej: Jacques Cousteau"
             type="text"
             class="popup__form-input popup__form-input_type_name"/>
+            <span class="popup__form-input-error-name"></span>
           <input
             name="occupation"
-            placeholder="Explorer"
+            placeholder="Ej: Explorer"
             type="text"
             class="popup__form-input popup__form-input_type_occupation"/>
+            <span class="popup__form-input-error-occupation"></span>
           <button
-            class="button popup__save-button"
+            class="popup__save-button popup__save-button_inactive"
             type="submit"
             aria-label="save">
             Guardar
