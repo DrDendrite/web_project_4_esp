@@ -1,0 +1,123 @@
+// llamar las constantes para el formulario editar perfil
+const editProfileForm = document.getElementById("edit-profile-form");
+const nameInput = document.querySelector(".popup__form-input_type_name");
+const occupationInput = document.querySelector(".popup__form-input_type_occupation");
+const saveButton = document.querySelector(".popup__save-button");
+const saveButtonInactive = document.querySelector(".popup__save-button_inactive");
+
+// Función para mostrar mensajes de error
+function showError(input, errorMessage) {
+  const errorSpan = input.nextElementSibling;
+  errorSpan.textContent = errorMessage;
+  errorSpan.style.color = "red";
+}
+
+// Función para ocultar mensajes de error
+function hideError(input) {
+  const errorSpan = input.nextElementSibling;
+  errorSpan.textContent = "";
+}
+
+// Función para validar el formulario
+function validateForm() {
+  // Validar campo de nombre
+  if (nameInput.value.length < 2 || nameInput.value.length > 40) {
+    showError(nameInput, "El nombre debe contener entre 2 y 40 caracteres.");
+    saveButtonInactive.style.backgroundColor = "#ffffff";
+    saveButtonInactive.disabled = true;
+  } else {
+    hideError(nameInput);
+    saveButton.style.backgroundColor = "#000000";
+    saveButton.disabled = false;
+  }
+
+  // Validar campo de ocupación
+  if (occupationInput.value.length < 2 || occupationInput.value.length > 200) {
+    showError(
+      occupationInput,
+      "La ocupación debe contener entre 2 y 200 caracteres."
+    );
+    saveButtonInactive.style.backgroundColor = "#ffffff";
+    saveButtonInactive.disabled = true;
+  } else {
+    hideError(occupationInput);
+    saveButton.style.backgroundColor = "#000000";
+    saveButton.disabled = false;
+  }
+}
+
+// Agregar evento input a los campos del formulario
+nameInput.addEventListener("input", validateForm);
+occupationInput.addEventListener("input", validateForm);
+
+// Agregar evento submit al formulario para evitar el envío si hay errores
+editProfileForm.addEventListener("submit", function (event) {
+  if (!nameInput.validity.valid || !occupationInput.validity.valid) {
+    event.preventDefault();
+  }
+});
+
+// Validar el formulario al cargar la página
+validateForm();
+
+// llamar las constantes para el formulario de agregar tarjeta
+const addForm = document.getElementById("form__add-card");
+const titleInput = document.querySelector(".form__input_place_name");
+const linkInput = document.querySelector(".form__input_link");
+const addButton = document.querySelector(".form__save-button");
+const addButtonInactive = document.querySelector(".form__save-button_inactive");
+
+// Función para mostrar mensajes de error
+function showAddError(input, errorMessage) {
+  const errorAddSpan = input.nextElementSibling;
+  errorAddSpan.textContent = errorMessage;
+  errorAddSpan.style.color = "red";
+}
+// Función para ocultar mensajes de error
+function hideAddError(input) {
+  const errorAddSpan = input.nextElementSibling;
+  errorAddSpan.textContent = "";
+}
+
+// Función para validar el formulario
+function validateAddForm() {
+  // Validar campo de título
+  if (titleInput.value.length < 2 || titleInput.value.length > 30) {
+    showAddError(
+      titleInput,
+      "El título debe contener entre 2 y 30 caracteres."
+    );
+    addButtonInactive.style.backgroundColor = "#ffffff";
+    addButtonInactive.disabled = true;
+  } else {
+    hideAddError(titleInput);
+    addButton.style.backgroundColor = "#000000";
+    addButton.disabled = false;
+  }
+
+  // Validar campo de link
+  const url = /^(ftp|http|https):\/\/[^ "]+$/;
+  if (!linkInput.value.match(url)) {
+    showAddError(linkInput, "Debes agregar un link.");
+    addButtonInactive.style.backgroundColor = "#ffffff";
+    addButtonInactive.disabled = true;
+  } else {
+    hideAddError(linkInput);
+    addButton.style.backgroundColor = "#000000";
+    addButton.disabled = false;
+  }
+}
+
+// Agregar evento input a los campos del formulario
+titleInput.addEventListener("input", validateAddForm);
+linkInput.addEventListener("input", validateAddForm);
+
+// Agregar evento submit al formulario para evitar el envío si hay errores
+addForm.addEventListener("submit", function (event) {
+  if (!titleInput.validity.valid || !linkInput.validity.valid) {
+    event.preventDefault();
+  }
+});
+
+// Validar el formulario agregar tarjeta al cargar la página
+validateAddForm();
