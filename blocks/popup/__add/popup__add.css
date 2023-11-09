@@ -8,8 +8,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     align-items: center;
     justify-content: center;
-    display: none
-    
+    display: none;    
 }
 .add_open{
     display: flex;
