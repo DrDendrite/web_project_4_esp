@@ -4,6 +4,9 @@ const nameInput = document.querySelector(".popup__form-input_type_name");
 const occupationInput = document.querySelector(".popup__form-input_type_occupation");
 const saveButton = document.querySelector(".popup__save-button");
 const saveButtonInactive = document.querySelector(".popup__save-button_inactive");
+const nameInputError = document.querySelector(".popup__form-input-error_type_name");
+const occupationInputError = document.querySelector(".popup__form-input-error_type_occupation");
+
 
 // Función para mostrar mensajes de error
 function showError(input, errorMessage) {
@@ -30,7 +33,6 @@ function validateForm() {
     saveButton.style.backgroundColor = "#000000";
     saveButton.disabled = false;
   }
-
   // Validar campo de ocupación
   if (occupationInput.value.length < 2 || occupationInput.value.length > 200) {
     showError(
