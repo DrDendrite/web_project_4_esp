@@ -45,13 +45,13 @@
     line-height: 17px;
     margin-bottom: 38px;
 }
-.form__input-error_place_name{
+.form__input_place_name_error{
     font-size: 12px;
     line-height: 15px;
     position: absolute;
     margin-top: 150px;
 }
-.form__input-error_link{
+.form__input_link_error{
     font-size: 12px;
     line-height: 15px;
     position: absolute;
