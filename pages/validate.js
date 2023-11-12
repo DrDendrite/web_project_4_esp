@@ -4,15 +4,14 @@ const nameInput = document.querySelector(".popup__form-input_type_name");
 const occupationInput = document.querySelector(".popup__form-input_type_occupation");
 const saveButton = document.querySelector(".popup__save-button");
 const saveButtonInactive = document.querySelector(".popup__save-button_inactive");
-const nameInputError = document.querySelector(".popup__form-input-error_type_name");
-const occupationInputError = document.querySelector(".popup__form-input-error_type_occupation");
+const nameInputError = document.querySelector(".popup__form-input-error-name");
+const occupationInputError = document.querySelector(".popup__form-input-error-occupation");
 
 
 // Función para mostrar mensajes de error
 function showError(input, errorMessage) {
   const errorSpan = input.nextElementSibling;
   errorSpan.textContent = errorMessage;
-  errorSpan.style.color = "red";
 }
 
 // Función para ocultar mensajes de error
@@ -68,12 +67,13 @@ const titleInput = document.querySelector(".form__input_place_name");
 const linkInput = document.querySelector(".form__input_link");
 const addButton = document.querySelector(".form__save-button");
 const addButtonInactive = document.querySelector(".form__save-button_inactive");
+const titleInputError = document.querySelector(".form__input-place-name-error");
+const linkInputError = document.querySelector(".form__input-link-error");
 
 // Función para mostrar mensajes de error
 function showAddError(input, errorMessage) {
   const errorAddSpan = input.nextElementSibling;
   errorAddSpan.textContent = errorMessage;
-  errorAddSpan.style.color = "red";
 }
 // Función para ocultar mensajes de error
 function hideAddError(input) {
@@ -98,7 +98,7 @@ function validateAddForm() {
   }
 
   // Validar campo de link
-  const url = /^(ftp|http|https):\/\/[^ "]+$/;
+  const url = "url";
   if (!linkInput.value.match(url)) {
     showAddError(linkInput, "Debes agregar un link.");
     addButtonInactive.style.backgroundColor = "#ffffff";

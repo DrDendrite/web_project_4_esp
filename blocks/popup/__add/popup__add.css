@@ -46,12 +46,14 @@
     margin-bottom: 38px;
 }
 .form__input-place-name-error{
+    color: red;
     font-size: 12px;
     line-height: 15px;
     position: absolute;
     margin-top: 150px;
 }
 .form__input-link-error{
+    color: red;
     font-size: 12px;
     line-height: 15px;
     position: absolute;
@@ -68,6 +70,10 @@
     padding: 20px 0;
     width: 358px;
     margin-bottom: 24px;
+}
+.form__save-button_inactive{
+    background-color: #fff;
+    color: #fff;
 }
 .form__save-button:hover{
     cursor: pointer;

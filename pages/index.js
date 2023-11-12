@@ -16,6 +16,8 @@ function openPopup() {
 profileEditButton.addEventListener("click", () => {
   profileNameInput.value = "";
   profileOccupationInput.value = "";
+  nameInputError.textContent = "";
+  occupationInputError.textContent = "";
   saveButtonInactive.disabled = true;
   saveButtonInactive.style.backgroundColor = "#ffffff";
   openPopup();
@@ -160,6 +162,10 @@ document.addEventListener("keydown", function (evt) {
 // abrir registro add con click en el boton
 addButon.addEventListener("click", () => {
   addPopup.classList.add("add_open");
+  titleInputError.textContent = "";
+  linkInputError.textContent = "";
+  addButtonInactive.disabled = true;
+  addButtonInactive.style.backgroundColor = "#ffffff";
 });
 // cerrar registro add con click en la X
 addCloseButton.addEventListener("click", () => {
