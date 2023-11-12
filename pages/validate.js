@@ -3,7 +3,7 @@ const editProfileForm = document.getElementById("edit-profile-form");
 const nameInput = document.querySelector(".popup__form-input_type_name");
 const occupationInput = document.querySelector(".popup__form-input_type_occupation");
 const saveButton = document.querySelector(".popup__save-button");
-const saveButtonInactive = document.querySelector(".popup__save-button_inactive");
+const saveButtonOff = document.querySelector(".popup__save-button_inactive");
 const nameInputError = document.querySelector(".popup__form-input-error-name");
 const occupationInputError = document.querySelector(".popup__form-input-error-occupation");
 
@@ -25,8 +25,8 @@ function validateForm() {
   // Validar campo de nombre
   if (nameInput.value.length < 2 || nameInput.value.length > 40) {
     showError(nameInput, "El nombre debe contener entre 2 y 40 caracteres.");
-    saveButtonInactive.style.backgroundColor = "#ffffff";
-    saveButtonInactive.disabled = true;
+    saveButtonOff.style.backgroundColor = "#ffffff";
+    saveButtonOff.disabled = true;
   } else {
     hideError(nameInput);
     saveButton.style.backgroundColor = "#000000";
@@ -34,17 +34,14 @@ function validateForm() {
   }
   // Validar campo de ocupación
   if (occupationInput.value.length < 2 || occupationInput.value.length > 200) {
-    showError(
-      occupationInput,
-      "La ocupación debe contener entre 2 y 200 caracteres."
-    );
-    saveButtonInactive.style.backgroundColor = "#ffffff";
-    saveButtonInactive.disabled = true;
+    showError(occupationInput, "La ocupación debe contener entre 2 y 200 caracteres.");
+    saveButtonOff.style.backgroundColor = "#ffffff";
+    saveButtonOff.disabled = true;
   } else {
     hideError(occupationInput);
     saveButton.style.backgroundColor = "#000000";
     saveButton.disabled = false;
-  }
+  } 
 }
 
 // Agregar evento input a los campos del formulario
@@ -98,7 +95,7 @@ function validateAddForm() {
   }
 
   // Validar campo de link
-  const url = "url";
+  const url = "https://";
   if (!linkInput.value.match(url)) {
     showAddError(linkInput, "Debes agregar un link.");
     addButtonInactive.style.backgroundColor = "#ffffff";

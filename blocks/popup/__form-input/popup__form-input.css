@@ -30,4 +30,10 @@
   .popup__form-input {
     width: 238px;
   }
+  .popup__form-input-error-name{
+    margin-top: 160px;
+  }
+  .popup__form-input-error-occupation{
+    margin-top: 220px;
+  }
 }

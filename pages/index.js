@@ -18,10 +18,10 @@ profileEditButton.addEventListener("click", () => {
   profileOccupationInput.value = "";
   nameInputError.textContent = "";
   occupationInputError.textContent = "";
-  saveButtonInactive.disabled = true;
-  saveButtonInactive.style.backgroundColor = "#ffffff";
-  openPopup();
+  saveButtonOff.style.backgroundColor = "#ffffff";
+  openPopup(); 
 });
+
 // cerrar registro con click en el fondo
 function closePopup() {
   profileEditPopup.classList.remove("popup_open");
