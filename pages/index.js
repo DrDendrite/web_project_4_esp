@@ -18,7 +18,7 @@ profileEditButton.addEventListener("click", () => {
   profileOccupationInput.value = "";
   nameInputError.textContent = "";
   occupationInputError.textContent = "";
-  saveButtonOff.style.backgroundColor = "#ffffff";
+  saveButtonOff.classList.add("popup__save-button_inactive");
   openPopup(); 
 });
 
@@ -165,7 +165,7 @@ addButon.addEventListener("click", () => {
   titleInputError.textContent = "";
   linkInputError.textContent = "";
   addButtonInactive.disabled = true;
-  addButtonInactive.style.backgroundColor = "#ffffff";
+  addButtonInactive.classList.add("form__save-button_inactive");
 });
 // cerrar registro add con click en la X
 addCloseButton.addEventListener("click", () => {

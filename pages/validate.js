@@ -25,21 +25,21 @@ function validateForm() {
   // Validar campo de nombre
   if (nameInput.value.length < 2 || nameInput.value.length > 40) {
     showError(nameInput, "El nombre debe contener entre 2 y 40 caracteres.");
-    saveButtonOff.style.backgroundColor = "#ffffff";
+    saveButtonOff.classList.add("popup__save-button_inactive");
     saveButtonOff.disabled = true;
   } else {
     hideError(nameInput);
-    saveButton.style.backgroundColor = "#000000";
+    saveButton.classList.remove("popup__save-button_inactive");
     saveButton.disabled = false;
   }
   // Validar campo de ocupación
   if (occupationInput.value.length < 2 || occupationInput.value.length > 200) {
     showError(occupationInput, "La ocupación debe contener entre 2 y 200 caracteres.");
-    saveButtonOff.style.backgroundColor = "#ffffff";
+    saveButtonOff.classList.add("popup__save-button_inactive");
     saveButtonOff.disabled = true;
   } else {
     hideError(occupationInput);
-    saveButton.style.backgroundColor = "#000000";
+    saveButton.classList.remove("popup__save-button_inactive");
     saveButton.disabled = false;
   } 
 }
@@ -86,11 +86,11 @@ function validateAddForm() {
       titleInput,
       "El título debe contener entre 2 y 30 caracteres."
     );
-    addButtonInactive.style.backgroundColor = "#ffffff";
+    addButtonInactive.classList.add("form__save-button_inactive");
     addButtonInactive.disabled = true;
   } else {
     hideAddError(titleInput);
-    addButton.style.backgroundColor = "#000000";
+    addButton.classList.remove("form__save-button_inactive");
     addButton.disabled = false;
   }
 
@@ -98,11 +98,11 @@ function validateAddForm() {
   const url = "https://";
   if (!linkInput.value.match(url)) {
     showAddError(linkInput, "Debes agregar un link.");
-    addButtonInactive.style.backgroundColor = "#ffffff";
+    addButtonInactive.classList.add("form__save-button_inactive");
     addButtonInactive.disabled = true;
   } else {
     hideAddError(linkInput);
-    addButton.style.backgroundColor = "#000000";
+    addButton.classList.remove("form__save-button_inactive");
     addButton.disabled = false;
   }
 }
