@@ -24,7 +24,9 @@
   position: absolute;
   margin-top: 210px;
 }
-
+.popup__form-input-error-active{
+  color: red;
+}
 
 @media screen and (max-width: 879px) and (min-width: 320px) {
   .popup__form-input {
