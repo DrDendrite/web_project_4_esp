@@ -44,52 +44,54 @@
       </section>
     </section>
 
-    <div class="popup">
-      <div class="popup__content">
-        <form
-          class="popup__form popup__form_type_edit"
-          id="edit-profile-form"
-          name="profile-edit"
-          novalidate
-        >
-          <h3 class="popup__title">Edit profile</h3>
-          <input
-            name="name"
-            placeholder="Ej: Jacques Cousteau"
-            type="text"
-            class="popup__form-input popup__form-input_type_name"
-            autocomplete="name"
-            minlength="2"
-            maxlength="40"
-          />
-          <span class="popup__form-input-error-name"></span>
-          <input
-            name="occupation"
-            placeholder="Ej: Explorer"
-            type="text"
-            class="popup__form-input popup__form-input_type_occupation"
-            autocomplete="occupation"
-            minlength="2"
-            maxlength="200"
-          />
-          <span class="popup__form-input-error-occupation"></span>
-          <button
-            class="popup__save-button popup__save-button_inactive"
-            type="submit"
-            aria-label="save"
-          >
-            Guardar
-          </button>
-        </form>
+    <div class="edit">
+      <form class="form form-edit" novalidate>
+        <h3 class="form__name">Edit profile</h3>
+        <input
+          name="name"
+          id="name"
+          placeholder="Ej: Jacques Cousteau"
+          type="text"
+          class="form__input form__input-name"
+          minlength="2"
+          maxlength="40"
+          required
+          autocomplete="off"
+        />
+        <span
+          class="form__input-error name-error form__input-error-name"
+        ></span>
+        <input
+          id="occupation"
+          name="occupation"
+          placeholder="Ej: Explorer"
+          type="text"
+          class="form__input form__input-occupation"
+          minlength="2"
+          maxlength="200"
+          required
+          autocomplete="off"
+        />
+        <span
+          class="form__input-error occupation-error form__input-error-occupation"
+        ></span>
         <button
-          class="button popup__close-button"
-          type="button"
-          aria-label="close"
-        ></button>
-      </div>
+          class="form__button-edit form__button-edit-inactive"
+          type="submit"
+          aria-label="save"
+          disabled
+        >
+          Guardar
+        </button>
+      </form>
+      <button
+        class="button popup__close-button"
+        type="button"
+        aria-label="close"
+      ></button>
     </div>
     <div class="add">
-      <form class="form" id="form__add-card" name="add-card" novalidate>
+      <form class="form form-add" novalidate>
         <button
           class="button form__close-button"
           type="button"
@@ -104,21 +106,27 @@
           class="form__input form__input_place_name"
           minlength="2"
           maxlength="30"
+          required
         />
-        <span class="form__input-place-name-error"></span>
+        <span
+          class="form__input-error title-error form__input-place-name-error"
+        ></span>
         <input
           name="link"
           id="link"
           placeholder="Image link"
           type="url"
-          class="form__input form__input_link"
+          class="form__input form__input-link"
           required
         />
-        <span class="form__input-link-error"></span>
+        <span
+          class="form__input-error link-error form__input-link-error"
+        ></span>
         <button
-          class="button form__save-button form__save-button_inactive"
+          class="form__button form__button-add form__button-add-inactive"
           type="submit"
           aria-label="save"
+          disabled
         >
           Create
         </button>
@@ -156,9 +164,8 @@
       </div>
     </div>
 
-    <script type = "module" src="./utils.js"></script>
-    <script type = "module" src="./index.js"></script>
-    <script type = "module" src="./card.js"></script>
-    <script type = "module" src="./formValidation.js"></script>
+    <script type="module" src="./utils.js"></script>
+    <script type="module" src="./index.js"></script>
+    <script type="module" src="./card.js"></script>
   </body>
 </html>

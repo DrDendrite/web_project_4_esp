@@ -1,20 +1,10 @@
-import {initialCards,
-cardContent,
-formEdit,
-firstInputEdit,
-firstSpanEdit,
-secondInputEdit,
-secondSpanEdit,
-buttonEdit,
-formAdd,
-firstInputAdd,
-firstSpanAdd,
-secondInputAdd,
-secondSpanAdd,
-buttonAdd } from "./utils.js";
+import { FormValidator } from "./formValidation.js";
+  
+import { initialCards,
+    cardContent,
+    } from "./utils.js";
 
 import { Card } from "./card.js";
-import { FormValidator } from "./formValidation.js";
 
 const cardElement = initialCards.map((data) => {
     const cardInstance = new Card(data, ".template");
@@ -22,11 +12,26 @@ const cardElement = initialCards.map((data) => {
 } );
 
 cardElement.forEach((cardElement) => {
-    cardContent.append(cardElement);
+    cardContent.prepend(cardElement);
 });
 
-const formEditValidator = new FormValidator(formEdit, firstInputEdit, secondInputEdit, firstSpanEdit, secondSpanEdit, buttonEdit);
-formEditValidator.setEventListeners();
 
-const formAddValidator = new FormValidator (formAdd, firstInputAdd, secondInputAdd, firstSpanAdd, secondSpanAdd, buttonAdd);
-formAddValidator.setEventListeners();
+const profileValidator = new FormValidator({ 
+    inputSelector: ".form__input",
+    submitButtonSelector: ".form__button-edit",
+    inactiveButtonClass: "form__button-edit-inactive",
+    inputErrorClass: "form__error",
+    errorClass: "show-error",
+} , document.querySelector(".form-edit"));
+profileValidator.enableValidation();
+
+const addValidator = new FormValidator({
+    inputSelector: ".form__input",
+    submitButtonSelector: ".form__button-add",
+    inactiveButtonClass: "form__button-add-inactive",
+    inputErrorClass: "form__error",
+    errorClass: "show-error",
+} , document.querySelector(".form-add"));
+addValidator.enableValidation();
+
+

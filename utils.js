@@ -1,3 +1,4 @@
+import { Card } from "./card.js";
 
 export const cardContent = document.querySelector(".elements");
 export const initialCards = [
@@ -26,22 +27,32 @@ export const initialCards = [
     link: "https://images.unsplash.com/photo-1493794179168-82ca7cb00437?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80",
   },
 ];
-
-export const profileEditButton = document.querySelector(".profile__edit-button");
-export const profileEditPopup = document.querySelector(".popup");
-export const profileEditCloseButton = document.querySelector(".popup__close-button");
-export const profileEditForm = document.querySelector("#edit-profile-form");
-export const profileNameEl = document.querySelector(".profile__name");
-export const profileOccupationEl = document.querySelector(".profile__occupation");
-export const profileNameInput = document.querySelector(".popup__form-input_type_name");
-export const profileOccupationInput = document.querySelector(".popup__form-input_type_occupation");
 // llamar las export constantes para el formulario editar perfil
+export const profileEditButton = document.querySelector(
+  ".profile__edit-button"
+);
+export const profileEditPopup = document.querySelector(".edit");
+export const profileEditCloseButton = document.querySelector(
+  ".popup__close-button"
+);
+export const profileEditForm = document.querySelector(".form-edit");
+export const profileNameEl = document.querySelector(".profile__name");
+export const profileOccupationEl = document.querySelector(
+  ".profile__occupation"
+);
+export const profileNameInput = document.querySelector(".form__input-name");
+export const profileOccupationInput = document.querySelector(
+  ".form__input-occupation"
+);
+export const profileEditSaveButton =
+  document.querySelector(".form__button-edit");
+// llamar las export constantes para el formulario agregar tarjeta
 export const addButon = document.querySelector(".profile__add-button");
 export const addPopup = document.querySelector(".add");
 export const addCloseButton = document.querySelector(".form__close-button");
-export const createButton = document.querySelector(".form__save-button");
+export const createButton = document.querySelector(".form__button");
 export const addNameInput = document.querySelector(".form__input_place_name");
-export const addLinkInput = document.querySelector(".form__input_link");
+export const addLinkInput = document.querySelector(".form__input-link");
 
 export const cardPic = document.querySelectorAll(".element");
 export const openPic = document.querySelectorAll(".element__card-pic");
@@ -53,40 +64,48 @@ export const imageName = document.querySelector(".popupimage__title");
 export const img = modalImage.querySelector(".popupimage__pop-up");
 
 // llamar las export constantes para el formulario editar perfil
-export const formEdit= document.getElementById("edit-profile-form");
-export const firstInputEdit = document.querySelector(".popup__form-input_type_name");
-export const secondInputEdit = document.querySelector(".popup__form-input_type_occupation");
-export const buttonEdit = document.querySelector(".popup__save-button");
-export const buttonEditOff = document.querySelector(".popup__save-button_inactive");
-export const firstSpanEdit = document.querySelector(".popup__form-input-error-name");
-export const secondSpanEdit = document.querySelector(".popup__form-input-error-occupation");
+export const formEdit = document.getElementById("form-edit");
+export const firstInputEdit = document.querySelector(".form__input-name");
+export const secondInputEdit = document.querySelector(
+  ".form__input-occupation"
+);
+export const buttonEditOff = document.querySelector(
+  ".form__buton-edit-inactive"
+);
+export const buttonEdit = document.querySelector(".form__buton-edit");
+export const firstSpanEdit = document.querySelector(".form__input-error-name");
+export const secondSpanEdit = document.querySelector(
+  ".form__input-error-occupation"
+);
 
 // llamar las export constantes para el formulario de agregar tarjeta
-export const formAdd = document.getElementById("form__add-card");
+export const formAdd = document.getElementById("form-add");
 export const firstInputAdd = document.querySelector(".form__input_place_name");
-export const secondInputAdd = document.querySelector(".form__input_link");
-export const buttonAdd = document.querySelector(".form__save-button");
-export const buttonAddOff = document.querySelector(".form__save-button_inactive");
-export const firstSpanAdd = document.querySelector(".form__input-place-name-error");
+export const secondInputAdd = document.querySelector(".form__input-link");
+export const buttonAddOff = document.querySelector(
+  ".form__button-add-inactive"
+);
+//export const buttonAdd = document.querySelector(".form__button-add");
+export const firstSpanAdd = document.querySelector(
+  ".form__input-place-name-error"
+);
 export const secondSpanAdd = document.querySelector(".form__input-link-error");
 
 //funcion para abrir registro
 function openPopup() {
-  profileEditPopup.classList.add("popup_open");
+  profileEditPopup.classList.add("edit_open");
 }
 // abrir registro con click en el boton
 profileEditButton.addEventListener("click", () => {
   profileNameInput.value = "";
   profileOccupationInput.value = "";
-  firstSpanEdit.textContent = "";
-  secondSpanEdit.textContent = "";
-  buttonEditOff.classList.add("popup__save-button_inactive");
-  openPopup(); 
+
+  openPopup();
 });
 
 // cerrar registro con click en el fondo
 function closePopup() {
-  profileEditPopup.classList.remove("popup_open");
+  profileEditPopup.classList.remove("edit_open");
 }
 // cerrar registro con click en la X
 profileEditCloseButton.addEventListener("click", () => {
@@ -103,13 +122,15 @@ profileEditPopup.addEventListener("click", (event) => {
 // enviar datos del registro al perfil con click en el boton guardar
 profileEditForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  const nameValue = event.target.name.value;
-  const occupationValue = event.target.occupation.value;
-  profileNameEl.textContent = nameValue;
-  profileOccupationEl.textContent = occupationValue;
+  const name = profileNameInput.value;
+  const occupation = profileOccupationInput.value;
+
+  profileNameEl.textContent = name;
+  profileOccupationEl.textContent = occupation;
+  console.log("se guardaron los datos");
+
   closePopup();
 });
-
 // cerrar imagen con click en la X
 closePic.addEventListener("click", function () {
   modalImage.classList.toggle("popup__image-active");
@@ -119,7 +140,7 @@ modalImage.addEventListener("click", function (evt) {
   if (evt.target === modalImage) {
     modalImage.classList.toggle("popup__image-active");
   } else if (evt.target === profileEditPopup) {
-    profileEditPopup.classList.toggle("popup_open");
+    profileEditPopup.classList.toggle("edit_open");
   } else if (evt.target === addPopup) {
     addPopup.classList.toggle("add_open");
   }
@@ -134,9 +155,9 @@ document.addEventListener("keydown", function (evt) {
     console.log("se cerró imagen");
   } else if (
     evt.key === "Escape" &&
-    profileEditPopup.classList.contains("popup_open")
+    profileEditPopup.classList.contains("edit_open")
   ) {
-    profileEditPopup.classList.remove("popup_open");
+    profileEditPopup.classList.remove("edit_open");
     console.log("se cerró registro");
   } else if (evt.key === "Escape" && addPopup.classList.contains("add_open")) {
     addPopup.classList.remove("add_open");
@@ -147,8 +168,6 @@ addButon.addEventListener("click", () => {
   addPopup.classList.add("add_open");
   firstSpanAdd.textContent = "";
   secondSpanAdd.textContent = "";
-  buttonAddOff.disabled = true;
-  buttonAddOff.classList.add("form__save-button_inactive");
 });
 // cerrar registro add con click en la X
 addCloseButton.addEventListener("click", () => {
@@ -163,24 +182,25 @@ addPopup.addEventListener("click", (evt) => {
 // cerrar registro add con escape
 createButton.addEventListener("click", function (evt) {
   evt.preventDefault();
+
   // Get input values
   const titleValue = addNameInput.value;
   const linkValue = addLinkInput.value;
 
   if (titleValue && linkValue) {
     // Create a new element
-     const newCard = addCard(titleValue, linkValue);
-    cardContent.prepend(newCard);
+    const card = new Card({ name: titleValue, link: linkValue }, ".template");
+    cardContent.prepend(card.generateCard());
+    console.log("se agregó una tarjeta");
 
     // Clear input values
     addNameInput.value = "";
     addLinkInput.value = "";
 
     // Close the form popup
-     const addPopup = document.querySelector(".add");
+    const addPopup = document.querySelector(".add");
     addPopup.classList.remove("add_open");
   } else {
+    // Handle case where inputs are empty
   }
 });
-
-

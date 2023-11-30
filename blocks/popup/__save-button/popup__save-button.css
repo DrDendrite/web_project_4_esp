@@ -1,4 +1,4 @@
-.popup__save-button {
+.form__button {
   background-color: #000;
     border: none;
     border-radius: 10px;
@@ -9,17 +9,40 @@
     padding: 20px;
     width: 358px;
     margin-bottom: 24px;
+    margin-top: 10px;;
 }
-.popup__save-button:hover {
+.form__button-edit {
+  background-color: #000;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 17px;
+    padding: 20px;
+    width: 358px;
+    margin-bottom: 24px;
+    margin-top: 10px;;
+}
+.form__button-edit:hover {
   opacity: 0.8;
   cursor: pointer;
 }
-.popup__save-button_inactive:hover {
+.form__button-edit-inactive:hover {
   cursor: auto;
 }
-.popup__save-button_inactive {
+.form__button-edit-inactive{
   background-color: #fff;
-  color: #fff;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 17px;
+    padding: 20px;
+    width: 358px;
+    margin-bottom: 24px;
+    
 }
 
 @media screen and (max-width: 879px) and (min-width: 320px) {
