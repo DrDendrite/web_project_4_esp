@@ -33,7 +33,7 @@ export const profileEditButton = document.querySelector(
 );
 export const profileEditPopup = document.querySelector(".edit");
 export const profileEditCloseButton = document.querySelector(
-  ".popup__close-button"
+  ".form__close-button"
 );
 export const profileEditForm = document.querySelector(".form-edit");
 export const profileNameEl = document.querySelector(".profile__name");
@@ -49,7 +49,7 @@ export const profileEditSaveButton =
 // llamar las export constantes para el formulario agregar tarjeta
 export const addButon = document.querySelector(".profile__add-button");
 export const addPopup = document.querySelector(".add");
-export const addCloseButton = document.querySelector(".form__close-button");
+export const addCloseButton = document.querySelector(".form__close-add-button");
 export const createButton = document.querySelector(".form__button");
 export const addNameInput = document.querySelector(".form__input_place_name");
 export const addLinkInput = document.querySelector(".form__input-link");
