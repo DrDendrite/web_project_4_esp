@@ -6,9 +6,9 @@
   background-repeat: no-repeat;
   border: none;
   background-size: cover;
-  top: -45px;
-  right: -45px;
-  position: absolute;
+  position: relative;
+  bottom: 190px;
+  left: 5px;
 }
 .popup__close-button:hover {
   opacity: 0.6;
