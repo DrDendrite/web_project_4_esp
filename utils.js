@@ -1,4 +1,4 @@
-import { Card } from "./card.js";
+import { Card } from "./Card.js";
 
 export const cardContent = document.querySelector(".elements");
 export const initialCards = [
@@ -97,9 +97,10 @@ function openPopup() {
 }
 // abrir registro con click en el boton
 profileEditButton.addEventListener("click", () => {
+  const buttonEdit = document.querySelector(".form__button-edit");
   profileNameInput.value = "";
   profileOccupationInput.value = "";
-
+  buttonEdit.classList.add("form__button-edit-inactive");
   openPopup();
 });
 
@@ -127,7 +128,6 @@ profileEditForm.addEventListener("submit", (event) => {
 
   profileNameEl.textContent = name;
   profileOccupationEl.textContent = occupation;
-  console.log("se guardaron los datos");
 
   closePopup();
 });
@@ -152,7 +152,6 @@ document.addEventListener("keydown", function (evt) {
     modalImage.classList.contains("popup__image-active")
   ) {
     modalImage.classList.remove("popup__image-active");
-    console.log("se cerró imagen");
   } else if (
     evt.key === "Escape" &&
     profileEditPopup.classList.contains("edit_open")
@@ -165,9 +164,11 @@ document.addEventListener("keydown", function (evt) {
 });
 // abrir registro add con click en el boton
 addButon.addEventListener("click", () => {
+  const buttonAdd = document.querySelector(".form__button-add");
   addPopup.classList.add("add_open");
-  firstSpanAdd.textContent = "";
-  secondSpanAdd.textContent = "";
+  addNameInput.value = "";
+  addLinkInput.value = "";
+  buttonAdd.classList.add("form__button-add-inactive");
 });
 // cerrar registro add con click en la X
 addCloseButton.addEventListener("click", () => {
@@ -191,7 +192,6 @@ createButton.addEventListener("click", function (evt) {
     // Create a new element
     const card = new Card({ name: titleValue, link: linkValue }, ".template");
     cardContent.prepend(card.generateCard());
-    console.log("se agregó una tarjeta");
 
     // Clear input values
     addNameInput.value = "";
@@ -201,6 +201,5 @@ createButton.addEventListener("click", function (evt) {
     const addPopup = document.querySelector(".add");
     addPopup.classList.remove("add_open");
   } else {
-    // Handle case where inputs are empty
   }
 });

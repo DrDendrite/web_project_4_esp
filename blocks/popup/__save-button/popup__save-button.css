@@ -51,4 +51,14 @@
     line-height: 17px;
     width: 238px;
   }
+  .form__button-edit-inactive {
+    font-size: 14px;
+    line-height: 17px;
+    width: 238px;
+  }
+  .form__button-edit {
+    font-size: 14px;
+    line-height: 17px;
+    width: 238px;
+  }
 }

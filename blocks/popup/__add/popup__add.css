@@ -4,17 +4,16 @@
   right: 0;
   top: 0;
   max-height: 1176px;
-  transition: opacity 0.3s ease-out;
+  transition: all 0.5s;
+  opacity: 0;
   background-color: rgba(0, 0, 0, 0.5);
   align-items: center;
   justify-content: center;
-  display: none;
 }
 .add_open {
   display: flex;
   background-color: rgba(0, 0, 0, 0.85);
   opacity: 1;
-  transition: all 0.5s;
   position: fixed;
 }
 
@@ -119,7 +118,7 @@
   .form__input {
     width: 248px;
   }
-  .form__save-button {
+  .form__button-add {
     width: 248px;
   }
   .form__close-button {
@@ -127,5 +126,10 @@
     height: 26px;
     right: 5px;
     top: -45px;
+  }
+  .form__button-add-inactive {
+    font-size: 14px;
+    line-height: 17px;
+    width: 238px;
   }
 }

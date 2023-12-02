@@ -13,12 +13,12 @@
     font-size: 14px;
     margin-top: 0px;
   }
-
+}
   @media screen and (max-width: 1279px) and (min-width: 880px){
     .profile__occupation {
         grid-row: 2;
-        font-size: 14px;
-        margin-top: 40px;
+        font-size: 18px;
+        position: absolute;
+        top: -30px;
       }
   }
-} 

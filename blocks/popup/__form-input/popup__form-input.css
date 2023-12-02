@@ -46,10 +46,8 @@
   .form__input-name {
     width: 238px;
   }
-  .form__input-error-name {
-    margin-top: 160px;
+  .form__input-occupation {
+    width: 238px;
   }
-  .form__input-error-occupation {
-    margin-top: 220px;
-  }
+
 }

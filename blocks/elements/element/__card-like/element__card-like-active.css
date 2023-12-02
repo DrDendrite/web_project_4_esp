@@ -9,6 +9,10 @@
     background-repeat: no-repeat;
     box-sizing: border-box;
 }
+.element__card-like-active:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
 
 .element__card-like-active-off{ 
     background-image: url(../../../../.././web_project_4_esp/images/heart-active.png);

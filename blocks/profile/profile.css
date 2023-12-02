@@ -4,6 +4,7 @@
   flex-direction: row;
   margin: auto;
   margin-top: 40px;
+  position: relative;
 }
 @media screen and (max-width: 1279px) and (min-width: 880px) {
   .profile {
