@@ -1,8 +1,7 @@
 import { FormValidator } from "./FormValidator.js";
-
+import {Card} from "./Card.js";
 import { initialCards, cardContent } from "./utils.js";
 
-import { Card } from "./Card.js";
 
 const cardElement = initialCards.map((data) => {
   const cardInstance = new Card(data, ".template");
