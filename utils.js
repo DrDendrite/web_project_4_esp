@@ -1,4 +1,4 @@
-import { Card } from "/Card.js";
+import {Card} from "./card.js";
 
 export const cardContent = document.querySelector(".elements");
 export const initialCards = [
