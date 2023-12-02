@@ -7,16 +7,16 @@
     background-color: rgba(0, 0, 0, 0.5);
     align-items: center;
     justify-content: center;
-    transition: all 0.5s;
+    opacity: 0;
 }
 .popupimage__opened {
     display: grid;
+    position: fixed;
 }
 .popupimage__pop-up {
     max-width: 816px;
     max-height: 540px;
     border-radius: 20px;
-    transition: all 0.5s;
 }
 .popupimage__close{
     width: 40px;
@@ -32,14 +32,16 @@
 }
 .popup__image-active{
     max-width: 1280px;
-    visibility: visible;
+    max-height: 1160px;
+    margin-top: 0;
     background-color: rgba(0, 0, 0, 0.85);
-    opacity: 1;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     position: fixed;
+    opacity: 1;
     transition: all 0.5s;
 }
 .popupimage__title{
