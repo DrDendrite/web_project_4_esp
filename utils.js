@@ -97,10 +97,8 @@ function openPopup() {
 }
 // abrir registro con click en el boton
 profileEditButton.addEventListener("click", () => {
-  const buttonEdit = document.querySelector(".form__button-edit");
   profileNameInput.value = "";
   profileOccupationInput.value = "";
-  buttonEdit.classList.add("form__button-edit-inactive");
   openPopup();
 });
 
@@ -164,11 +162,9 @@ document.addEventListener("keydown", function (evt) {
 });
 // abrir registro add con click en el boton
 addButon.addEventListener("click", () => {
-  const buttonAdd = document.querySelector(".form__button-add");
   addPopup.classList.add("add_open");
   addNameInput.value = "";
   addLinkInput.value = "";
-  buttonAdd.classList.add("form__button-add-inactive");
 });
 // cerrar registro add con click en la X
 addCloseButton.addEventListener("click", () => {
