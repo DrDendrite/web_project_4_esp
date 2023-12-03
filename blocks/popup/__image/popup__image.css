@@ -8,6 +8,7 @@
     align-items: center;
     justify-content: center;
     opacity: 0;
+    transition: 0.5s;
 }
 .popupimage__opened {
     display: grid;
@@ -42,7 +43,7 @@
     justify-content: center;
     position: fixed;
     opacity: 1;
-    transition: all 0.5s;
+
 }
 .popupimage__title{
     align-self: start;

@@ -159,7 +159,6 @@ document.addEventListener("keydown", function (evt) {
     profileEditPopup.classList.contains("edit_open")
   ) {
     profileEditPopup.classList.remove("edit_open");
-    console.log("se cerró registro");
   } else if (evt.key === "Escape" && addPopup.classList.contains("add_open")) {
     addPopup.classList.remove("add_open");
   }

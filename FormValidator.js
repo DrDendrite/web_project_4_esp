@@ -36,7 +36,6 @@ export class FormValidator {
     const errorElement = this._formElement.querySelector(
       `.${inputElement.id}-error`
     );
-    console.log(inputElement.id);
     errorElement.textContent = inputElement.validationMessage;
     errorElement.classList.add(this._errorClass);
     inputElement.classList.add(this._inputErrorClass);

@@ -12,6 +12,8 @@
 .element__card-like-active:hover{
     cursor: pointer;
     opacity: 0.8;
+    width: 25px;
+    height: 23px;
 }
 
 .element__card-like-active-off{ 

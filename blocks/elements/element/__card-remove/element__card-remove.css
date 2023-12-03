@@ -8,3 +8,9 @@
     border-radius: 5px;
     z-index: 1;
 }
+.element__card-remove:hover{
+    cursor: pointer;
+    filter: brightness(1);
+    width: 24px;
+    height: 24px;
+}

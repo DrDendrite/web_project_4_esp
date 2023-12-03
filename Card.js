@@ -56,6 +56,8 @@ export class Card {
     generateCard() {
       this._cardNameElement.textContent = this._name;
       this._cardImageElement.src = this._link;
+      this._cardImageElement.alt = this._name;
       return this._element;
-    }
-  }
+
+    } 
+}
