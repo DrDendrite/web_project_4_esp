@@ -6,8 +6,8 @@
   background-repeat: no-repeat;
   border: none;
   background-size: cover;
-  top: -45px;
-  right: -45px;
+  left: 1470px;
+  top: 265px;
   position: absolute;
 }
 .form__close-button:hover {
