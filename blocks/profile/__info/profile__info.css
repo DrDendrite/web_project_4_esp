@@ -4,7 +4,8 @@
   color: white;
   height: 59px;
   margin-bottom: 0;
-}
+  grid-template-columns: 1fr 1fr;
+} 
 
 @media screen and (max-width: 879px) and (min-width: 320px) {
   .profile__info {
