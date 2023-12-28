@@ -27,6 +27,7 @@ export const initialCards = [
     link: "https://images.unsplash.com/photo-1493794179168-82ca7cb00437?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80",
   },
 ];
+
 // llamar las export constantes para el formulario editar perfil
 export const profileEditButton = document.querySelector(
   ".profile__edit-button"

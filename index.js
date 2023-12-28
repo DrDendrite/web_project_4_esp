@@ -1,16 +1,25 @@
 import { FormValidator } from "./FormValidator.js";
 import {Card} from "./Card.js";
-import { initialCards, cardContent } from "./utils.js";
+import { initialCards } from "./utils.js";
+import { Section } from "./Section.js";
 
+/* -------------------------------------------------------------------------- */
+/*                                  Cards                                     */
+/* -------------------------------------------------------------------------- */
 
-const cardElement = initialCards.map((data) => {
-  const cardInstance = new Card(data, ".template");
-  return cardInstance.generateCard();
-});
+const section = new Section(
+  {
+    items: initialCards,
+    renderer: (data) => {
+      const card = new Card(data, ".template");
+      const cardElement = card.generateCard();
+      section.addItem(cardElement);
+    },
+  },
+  ".elements"
+);
 
-cardElement.forEach((cardElement) => {
-  cardContent.prepend(cardElement);
-});
+section.renderItems();
 
 const profileValidator = new FormValidator(
   {
