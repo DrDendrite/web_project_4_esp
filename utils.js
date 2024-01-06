@@ -1,207 +1,97 @@
-import {Card} from "./Card.js";
-
-export const cardContent = document.querySelector(".elements");
 export const initialCards = [
-  {
-    name: "Mazatlán, Sinaloa",
-    link: "https://images.unsplash.com/photo-1608920423186-174787ba2c27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80",
-  },
-  {
-    name: "Monte Alban, Oaxaca",
-    link: "https://images.unsplash.com/photo-1530455235907-0a59ea1e04ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1173&q=80",
-  },
-  {
-    name: "Chiapas",
-    link: "https://images.unsplash.com/photo-1630730041073-c75e98030355?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-  },
-  {
-    name: "Guadalajara, Jalisco",
-    link: "https://images.unsplash.com/photo-1565670105658-ea35d27f7de7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1025&q=80",
-  },
-  {
-    name: "Michoacán",
-    link: "https://images.unsplash.com/photo-1562218355-1fde5256182d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80",
-  },
-  {
-    name: "Cd. de México",
-    link: "https://images.unsplash.com/photo-1493794179168-82ca7cb00437?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80",
-  },
+{
+  name: "Mazatlán, Sinaloa",
+  link: "https://images.unsplash.com/photo-1608920423186-174787ba2c27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80",
+},
+{
+  name: "Monte Alban, Oaxaca",
+  link: "https://images.unsplash.com/photo-1530455235907-0a59ea1e04ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1173&q=80",
+},
+{
+  name: "Chiapas",
+  link: "https://images.unsplash.com/photo-1630730041073-c75e98030355?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+},
+{
+  name: "Guadalajara, Jalisco",
+  link: "https://images.unsplash.com/photo-1565670105658-ea35d27f7de7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1025&q=80",
+},
+{
+  name: "Michoacán",
+  link: "https://images.unsplash.com/photo-1562218355-1fde5256182d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80",
+},
+{
+  name: "Cd. de México",
+  link: "https://images.unsplash.com/photo-1493794179168-82ca7cb00437?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80",
+},
 ];
 
-// llamar las export constantes para el formulario editar perfil
-export const profileEditButton = document.querySelector(
-  ".profile__edit-button"
-);
-export const profileEditPopup = document.querySelector(".edit");
-export const profileEditCloseButton = document.querySelector(
-  ".form__close-button"
-);
-export const profileEditForm = document.querySelector(".form-edit");
-export const profileNameEl = document.querySelector(".profile__name");
-export const profileOccupationEl = document.querySelector(
-  ".profile__occupation"
-);
-export const profileNameInput = document.querySelector(".form__input-name");
-export const profileOccupationInput = document.querySelector(
-  ".form__input-occupation"
-);
-export const profileEditSaveButton =
-  document.querySelector(".form__button-edit");
-// llamar las export constantes para el formulario agregar tarjeta
-export const addButon = document.querySelector(".profile__add-button");
-export const addPopup = document.querySelector(".add");
-export const addCloseButton = document.querySelector(".form__close-add-button");
-export const createButton = document.querySelector(".form__button");
-export const addNameInput = document.querySelector(".form__input_place_name");
-export const addLinkInput = document.querySelector(".form__input-link");
+/* -------------------------------------------------------------------------- */
+/*                                  Wrappers                                  */
+/* -------------------------------------------------------------------------- */
+export const cardsWrap = document.querySelector(".cards__list");
+export const profileEditPopup = document.querySelector("#profile-edit-popup");
+export const addCardPopup = document.querySelector("#add-card-popup");
+export const profileEditForm = profileEditPopup.querySelector("#edit-profile-form");
+export const addCardForm = addCardPopup.querySelector("#add-card-form");
+export const viewCardImagePopup = document.querySelector("#view-image-popup");
 
-export const cardPic = document.querySelectorAll(".element");
-export const openPic = document.querySelectorAll(".element__card-pic");
-export const trueName = document.querySelectorAll(".element__card-name");
-export const closePic = document.querySelector(".popupimage__close");
-export const modalImage = document.querySelector(".popupimage");
-export const elementName = document.querySelector(".element");
-export const imageName = document.querySelector(".popupimage__title");
-export const img = modalImage.querySelector(".popupimage__pop-up");
-
-// llamar las export constantes para el formulario editar perfil
-export const formEdit = document.getElementById("form-edit");
-export const firstInputEdit = document.querySelector(".form__input-name");
-export const secondInputEdit = document.querySelector(
-  ".form__input-occupation"
+/* -------------------------------------------------------------------------- */
+/*                       // Buttons and other DOM nodes                       */
+/* -------------------------------------------------------------------------- */
+export const profileEditButton = document.querySelector("#profile-edit-button");
+export const profileCloseButton = profileEditPopup.querySelector(
+  "#editprofile-close-button"
 );
-export const buttonEditOff = document.querySelector(
-  ".form__buton-edit-inactive"
+export const profileTitle = document.querySelector(".profile__title");
+export const profileDescription = document.querySelector(
+  ".profile__description"
 );
-export const buttonEdit = document.querySelector(".form__buton-edit");
-export const firstSpanEdit = document.querySelector(".form__input-error-name");
-export const secondSpanEdit = document.querySelector(
-  ".form__input-error-occupation"
+export const cardListEl = document.querySelector(".cards__list");
+export const addCardButton = document.querySelector("#add-button");
+export const addCardCloseButton = addCardPopup.querySelector(
+  "#addcard-close-button"
+);
+export const addCardTitle = document.querySelector(".popup__title");
+export const addCardImageLink = document.querySelector(".popup__image-link");
+export const viewCardImage =
+  viewCardImagePopup.querySelector(".popup__image-view");
+export const viewCardImageCaption = document.querySelector(
+  ".popup__image-caption"
+);
+export const viewCardCloseButton = viewCardImagePopup.querySelector(
+  "#viewimage-close-button"
 );
 
-// llamar las export constantes para el formulario de agregar tarjeta
-export const formAdd = document.getElementById("form-add");
-export const firstInputAdd = document.querySelector(".form__input_place_name");
-export const secondInputAdd = document.querySelector(".form__input-link");
-export const buttonAddOff = document.querySelector(
-  ".form__button-add-inactive"
+/* -------------------------------------------------------------------------- */
+/*                                // Form Data                                */
+/* -------------------------------------------------------------------------- */
+export const profileTitleInput = document.querySelector(
+  ".popup__input_type_name"
 );
-//export const buttonAdd = document.querySelector(".form__button-add");
-export const firstSpanAdd = document.querySelector(
-  ".form__input-place-name-error"
+export const profileDescriptionInput = document.querySelector(
+  ".popup__input_type_description"
 );
-export const secondSpanAdd = document.querySelector(".form__input-link-error");
+export const cardTitleInput = addCardForm.querySelector(
+  ".popup__input_type_title"
+);
+export const cardUrlInput = addCardForm.querySelector(".popup__input_type_url");
+export const cardFormInputs = [cardTitleInput, cardUrlInput];
+export const cardFormSubmitButton = addCardForm.querySelector(
+  ".popup__save-button"
+);
 
-//funcion para abrir registro
-function openPopup() {
-  profileEditPopup.classList.add("edit_open");
-}
-// abrir registro con click en el boton
-profileEditButton.addEventListener("click", () => {
-  const buttonEdit = document.querySelector(".form__button-edit");
-  profileNameInput.value = "";
-  profileOccupationInput.value = "";
-  firstSpanEdit.textContent = "";
-  secondSpanEdit.textContent = "";
-  buttonEdit.classList.add("form__button-edit-inactive");
-  openPopup();
-});
+export const settings = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__save-button",
+  inactiveButtonClass: "popup__save-button-inactive",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
+export const editForm = document.querySelector("#edit-profile-form");
+export const addForm = document.querySelector("#add-card-form");
 
-// cerrar registro con click en el fondo
-function closePopup() {
-  profileEditPopup.classList.remove("edit_open");
-}
-// cerrar registro con click en la X
-profileEditCloseButton.addEventListener("click", () => {
-  closePopup();
-});
-
-// cerrar registro con escape
-profileEditPopup.addEventListener("click", (event) => {
-  if (event.target === profileEditPopup) {
-    closePopup();
-  }
-});
-
-// enviar datos del registro al perfil con click en el boton guardar
-profileEditForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const name = profileNameInput.value;
-  const occupation = profileOccupationInput.value;
-
-  profileNameEl.textContent = name;
-  profileOccupationEl.textContent = occupation;
-
-  closePopup();
-});
-// cerrar imagen con click en la X
-closePic.addEventListener("click", function () {
-  modalImage.classList.toggle("popup__image-active");
-});
-// cerrar imagen, formulario y registro con click en el fondo
-modalImage.addEventListener("click", function (evt) {
-  if (evt.target === modalImage) {
-    modalImage.classList.toggle("popup__image-active");
-  } else if (evt.target === profileEditPopup) {
-    profileEditPopup.classList.toggle("edit_open");
-  } else if (evt.target === addPopup) {
-    addPopup.classList.toggle("add_open");
-  }
-});
-// cerrar imagen, formulario y registro con escape
-document.addEventListener("keydown", function (evt) {
-  if (
-    evt.key === "Escape" &&
-    modalImage.classList.contains("popup__image-active")
-  ) {
-    modalImage.classList.remove("popup__image-active");
-  } else if (
-    evt.key === "Escape" &&
-    profileEditPopup.classList.contains("edit_open")
-  ) {
-    profileEditPopup.classList.remove("edit_open");
-  } else if (evt.key === "Escape" && addPopup.classList.contains("add_open")) {
-    addPopup.classList.remove("add_open");
-  }
-});
-// abrir registro add con click en el boton
-addButon.addEventListener("click", () => {
-  const buttonAdd = document.querySelector(".form__button-add");
-  addPopup.classList.add("add_open");
-  addNameInput.value = "";
-  addLinkInput.value = "";
-  buttonAdd.classList.add("form__button-add-inactive");
-});
-// cerrar registro add con click en la X
-addCloseButton.addEventListener("click", () => {
-  addPopup.classList.remove("add_open");
-});
-// cerrar registro add con click en el fondo
-addPopup.addEventListener("click", (evt) => {
-  if (evt.target === addPopup) {
-    addPopup.classList.toggle("add_open");
-  }
-});
-// cerrar registro add con escape
-createButton.addEventListener("click", function (evt) {
-  evt.preventDefault();
-
-  // Get input values
-  const titleValue = addNameInput.value;
-  const linkValue = addLinkInput.value;
-
-  if (titleValue && linkValue) {
-    // Create a new element
-    const card = new Card({ name: titleValue, link: linkValue }, ".template");
-    cardContent.prepend(card.generateCard());
-
-    // Clear input values
-    addNameInput.value = "";
-    addLinkInput.value = "";
-
-    // Close the form popup
-    const addPopup = document.querySelector(".add");
-    addPopup.classList.remove("add_open");
-  } else {
-  }
-});
+export const cardsConfig = {
+  containerSelector: ".cards__list",
+  cardTemplateSelector: "#card-template",
+};

@@ -1,169 +1,143 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./pages/index.css" />
     <title>Around Mexico</title>
   </head>
-  <body>
-    <section class="page">
-      <header class="header">
+  <body class="page">
+    <div class="page__content">
+      <header class="header page__section">
         <img
-          class="header__title"
+          class="header__image"
           src="./images/around-mex.png"
-          alt="Logo de Practicum"
-        />
-        <img
-          class="header__line"
-          src="./images/Line.png"
-          alt="linea de color gris que divide el titulo del resto de la pagina"
+          alt="around the us logo"
         />
       </header>
-      <section class="profile">
-        <img
-          class="profile__pic"
-          src="./images/hand_logo.jpg"
-          alt="foto de perfil del usuario"
-        />
-        <div class="profile__info">
-          <h1 class="profile__name">Carlos Pineda Reyes</h1>
-          <button
-            class="profile__edit-button"
-            type="button"
-            aria-label="edit"
-          ></button>
-          <p class="profile__occupation">Web Developer</p>
-        </div>
-        <button class="profile__add-button"></button>
-      </section>
-      <ul class="elements"></ul>
-
-      <section class="footer">
-        <p class="footer__copyright">© 2021 Carlos Pineda</p>
-      </section>
-    </section>
-
-    <div class="edit">
-      <form class="form form-edit" novalidate>
-        <button
-        class="button form__close-button"
-        type="button"
-        aria-label="close"
-      ></button>
-        <h3 class="form__name">Edit profile</h3>
-        <input
-          name="name"
-          id="name"
-          placeholder="Ej: Jacques Cousteau"
-          type="text"
-          class="form__input form__input-name"
-          minlength="2"
-          maxlength="40"
-          required
-          autocomplete="off"
-        />
-        <span
-          class="form__input-error name-error form__input-error-name"
-        ></span>
-        <input
-          id="occupation"
-          name="occupation"
-          placeholder="Ej: Explorer"
-          type="text"
-          class="form__input form__input-occupation"
-          minlength="2"
-          maxlength="200"
-          required
-          autocomplete="off"
-        />
-        <span
-          class="form__input-error occupation-error form__input-error-occupation"
-        ></span>
-        <button
-          class="form__button-edit form__button-edit-inactive"
-          type="submit"
-          aria-label="save"
-          disabled
-        >
-          Guardar
-        </button>
-      </form>
-    </div>
-    <div class="add">
-      <form class="form form-add" novalidate>
-        <button
-          class="button form__close-add-button"
-          type="button"
-          aria-label="close"
-        ></button>
-        <h3 class="form__title">New place</h3>
-        <input
-          name="title"
-          id="title"
-          placeholder="Title"
-          type="text"
-          class="form__input form__input_place_name"
-          minlength="2"
-          maxlength="30"
-          required
-          autocomplete="off"
-        />
-        <span
-          class="form__input-error title-error form__input-place-name-error"
-        ></span>
-        <input
-          name="link"
-          id="link"
-          placeholder="Image link"
-          type="url"
-          class="form__input form__input-link"
-          required
-        />
-        <span
-          class="form__input-error link-error form__input-link-error"
-        ></span>
-        <button
-          class="form__button form__button-add form__button-add-inactive"
-          type="submit"
-          aria-label="save"
-          disabled
-        >
-          Create
-        </button>
-      </form>
-    </div>
-    <template class="template">
-      <li class="element">
-        <img
-          class="element__card-remove"
-          src="./images/remove.svg"
-          alt="icono de basurero"
-        />
-
-        <img
-          src=" "
-          class="element__card-pic"
-          alt=" "
-        />
-        <div class="element__card-info">
-          <h3 class="element__card-name"></h3>
+      <main class="content">
+        <section class="profile page__section">
           <img
-            class="element__card-like-active"
-            src="./images/heart.png"
-            alt="icono de like"
+            class="profile__pic"
+            src="./images/hand_logo.jpg"
+            alt="jacques cousteau profile pic"
           />
+          <div class="profile__info">
+            <h1 class="profile__title">Carlos Pineda</h1>
+            <button
+              aria-label="edit button"
+              class="profile__pencil-button"
+              type="button"
+              id="profile-edit-button"
+            ></button>
+            <p class="profile__description">Web Developer</p>
+          </div>
+          <button
+            class="profile__add-button"
+            id="add-button"
+            type="button"
+          ></button>
+        </section>
+        <section class="cards page__section">
+          <ul class="cards__list"></ul>
+        </section>
+      </main>
+      <footer class="footer page__section">
+        <p class="footer__copyright">&copy; 2023 DrDendrite</p>
+      </footer>
+    </div>
+    <section class="popup" id="profile-edit-popup">
+      <div class="popup__container-edit" id ="popup__container" >
+        <button
+          class="popup__close-button popup__close-button-form"
+          id="editprofile-close-button"
+          type="button"
+        ></button>
+        <h2 class="popup__heading">Edit Profile</h2>
+        <form class="popup__form" id="edit-profile-form" novalidate>
+          <input
+            type="text"
+            class="popup__input popup__input_type_name"
+            placeholder="Name"
+            id="popup-name"
+            maxlength="40"
+            minlength="2"
+            name="name"
+            required
+            autocomplete="off"
+          />
+          <span class="popup__error" id="popup-name-error"></span>
+          <input
+            type="text"
+            class="popup__input popup__input_type_description"
+            placeholder="About"
+            id="popup-description"
+            name="about"
+            maxlength="200"
+            minlength="2"
+            required
+          />
+          <span class="popup__error" id="popup-description-error"></span>
+          <button class="popup__save-button popup__save-button-inactive" type="submit">Save</button>
+        </form>
+      </div>
+    </section>
+    <section class="popup" id="add-card-popup">
+      <div class="popup__container popup__container-add">
+        <button
+          class="popup__close-button popup__close-button-form"
+          id="addcard-close-button"
+          type="button"
+        ></button>
+        <h2 class="popup__heading">New Place</h2>
+        <form class="popup__form" id="add-card-form" novalidate>
+          <input
+            type="text"
+            class="popup__input popup__input_type_title"
+            placeholder="Title"
+            id="popup-title"
+            name="name"
+            minlength="2"
+            maxlength="30"
+            required
+            autocomplete="off"
+          />
+          <span class="popup__error" id="popup-title-error"></span>
+          <input
+            type="url"
+            class="popup__input popup__input_type_url"
+            placeholder="Image Link"
+            id="popup-image-link"
+            name="link"
+            required
+          />
+          <span class="popup__error" id="popup-image-link-error"></span>
+          <button class="popup__save-button popup__save-button-inactive" type="submit">Create</button>
+        </form>
+      </div>
+    </section>
+    <section class="popup" id="view-image-popup">
+      <div class="popup__container popup__container_type_preview">
+        <button
+          class="popup__close-button"
+          id="viewimage-close-button"
+          type="button"
+        ></button>
+        <img src="#" alt="#" class="popup__image-view" id="popup-image-view" />
+        <p class="popup__image-caption"></p>
+      </div>
+    </section>
+    <template id="card-template">
+      <li class="card">
+        <img class="card__image" src="" alt="" id="card-image" />
+        <button class="card__delete-button" type="button"></button>
+        <div class="card__description">
+          <h2 class="card__title"></h2>
+          <button class="card__like-button" type="button"></button>
         </div>
       </li>
     </template>
 
-    <div class="popupimage">
-      <div class="popupimage__opened">
-        <button class="button popupimage__close">╳</button>
-        <img src=" " class="popupimage__pop-up" alt="imagen agrandada" />
-        <h4 class="popupimage__title"></h4>
-      </div>
-    </div>
-    <script type="module" src="./index.js"></script>
+    <script src="./index.js" defer type="module"></script> 
   </body>
 </html>
