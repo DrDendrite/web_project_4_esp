@@ -16,8 +16,8 @@
 }
 .popup__container_type_preview{
     position: relative;
-    width: auto;
-    height: auto;
+    max-width: 816px;
+    max-height: 540px;
     border-radius: 20px;
 }
 
@@ -34,7 +34,7 @@
     width: 40px;
     height: 40px;
     position: absolute;
-    right: 1270px;
+    right: 485px;
     top: 370px;
     background-color: transparent;
     background-repeat: no-repeat;
@@ -52,7 +52,7 @@
     width: 40px;
     height: 40px;
     position: absolute;
-    right: 1270px;
+    right: 485px;
     top: 370px;
     background-color: transparent;
     background-repeat: no-repeat;
@@ -101,8 +101,8 @@
     color: white;
     display: flex;
     align-items: end;
-    right: 850px;
-    margin-left: auto;
+    
+    margin-left: 820px;
     margin-bottom: 10px;
 }
 
