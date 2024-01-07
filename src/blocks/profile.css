@@ -67,9 +67,9 @@
     height: 120px;
     width: 120px;
     border-radius: 50%;
-    object-fit: cover;
-    background-position: center;
     margin-right: 24px;
+    background-image: url(../images/hand_logo.jpg);
+    background-size: cover; 
   }
   
   @media screen and (max-width: 544px) {

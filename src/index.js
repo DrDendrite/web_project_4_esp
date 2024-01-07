@@ -1,9 +1,11 @@
-import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
-import Section from "./Section.js";
-import PopupWithForm from "./PopupWithForm.js";
-import PopupWithImage from "./PopupWithImage.js";
-import UserInfo from "./UserInfo.js";
+import "./page/index.css";
+import aroundMx from "./images/around-mex.png";
+import Card from "./components/Card.js";
+import FormValidator from "./components/FormValidator.js";
+import Section from "./components/Section.js";
+import PopupWithForm from "./components/PopupWithForm.js";
+import PopupWithImage from "./components/PopupWithImage.js";
+import UserInfo from "./components/UserInfo.js";
 import {
   initialCards,
   profileEditButton,
@@ -13,7 +15,7 @@ import {
   settings,
   editForm,
   addForm,
-} from "./utils.js";
+} from "./utils/utils.js";
 
 /* -------------------------------------------------------------------------- */
 /*                                  Cards                                     */
@@ -102,3 +104,7 @@ const userInfo = new UserInfo({
   userName: ".profile__title",
   userDescription: ".profile__description",
 });
+
+/* ------------------------------------------------------------------------ */
+const aroundMxImage = document.querySelector("#header__image");
+aroundMxImage.src = aroundMx;

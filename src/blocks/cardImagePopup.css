@@ -14,6 +14,7 @@
   visibility: hidden;
   position: fixed;  
 }
+
 .popup__container_type_preview{
     position: relative;
     max-width: 816px;
@@ -33,13 +34,14 @@
     background-image: url(../images/Close-Icon.png);
     width: 40px;
     height: 40px;
-    position: absolute;
-    right: 485px;
-    top: 370px;
+    right: 675px;
     background-color: transparent;
     background-repeat: no-repeat;
     border: none;
     background-size: cover;
+    position: absolute;
+    bottom: 340px;
+    left: 430px;
 }
 
 #editprofile-close-button:hover{
@@ -51,16 +53,37 @@
     background-image: url(../images/Close-Icon.png);
     width: 40px;
     height: 40px;
-    position: absolute;
-    right: 485px;
-    top: 370px;
     background-color: transparent;
     background-repeat: no-repeat;
     border: none;
     background-size: cover;
+    color: white;
+    position: absolute;
+    bottom: 340px;
+    left: 430px;
 }
 
 #addcard-close-button:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#viewimage-close-button{
+    background-image: url(../images/Close-Icon.png);
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    background-size: cover;
+    color: white;
+    display: flex;
+    align-items: end; 
+    margin-left: 1820px;
+    margin-bottom: 10px;
+}
+
+#viewimage-close-button:hover{
     opacity: 0.5;
     cursor: pointer;
 }
@@ -87,28 +110,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: fixed; 
-}
-
-#viewimage-close-button{
-    background-image: url(../images/Close-Icon.png);
-    width: 40px;
-    height: 40px;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    border: none;
-    background-size: cover;
-    color: white;
-    display: flex;
-    align-items: end;
-    
-    margin-left: 820px;
-    margin-bottom: 10px;
-}
-
-#viewimage-close-button:hover{
-    opacity: 0.5;
-    cursor: pointer;
+    position: absolute 
 }
 
 .popup__form{
@@ -128,6 +130,7 @@
     border-radius: 10px;
     left: auto;
     right: auto;
+    position: relative;
 }
 
 .popup__container-add{
@@ -140,6 +143,7 @@
     border-radius: 10px;
     left: auto;
     right: auto;
+    position: relative;
 }
 
 .popup__save-button{
