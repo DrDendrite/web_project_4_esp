@@ -78,8 +78,8 @@
     background-size: cover;
     color: white;
     display: flex;
-    align-items: end; 
-    margin-left: 1820px;
+    align-items: end;
+    margin-left: 820px;
     margin-bottom: 10px;
 }
 
@@ -110,7 +110,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: absolute 
+    position: absolute;
 }
 
 .popup__form{
