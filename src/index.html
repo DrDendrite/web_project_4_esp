@@ -18,8 +18,12 @@
         <section class="profile page__section">
           <img
             class="profile__pic"
-            alt="Profile pic"
           />
+          <div class="profile__overlay-edit">
+            <img class="profile__btn-edit-photo"
+            />
+          </div>
+
           <div class="profile__info">
             <h1 class="profile__title">Carlos Pineda</h1>
             <button
@@ -125,6 +129,30 @@
         <p class="popup__image-caption"></p>
       </div>
     </section>
+
+    <section class = "popup" id = "avatar-edit-popup">
+      <div class="popup__container popup__container-change">
+        <button
+          class="popup__close-button popup__close-button-form"
+          id="avatar-edit-close-button"
+          type="button"
+        ></button>
+        <h2 class="popup__heading">Change Profile Picture</h2>
+        <form class="popup__form" id="avatar-edit-form" novalidate>
+          <input
+            type="url"
+            class="popup__input popup__input_type_url"
+            placeholder="Image Link"
+            id="popup-avatar-link"
+            name="link"
+            required
+          />
+          <span class="popup__error" id="popup-avatar-link-error"></span>
+          <button class="popup__save-button popup__save-button-inactive" type="submit">Save</button>
+        </form>
+      </div>
+    </section>
+
     <template id="card-template">
       <li class="card">
         <img class="card__image" src=" " alt="" id="card-image" />

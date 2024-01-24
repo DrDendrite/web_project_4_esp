@@ -35,6 +35,7 @@ export const profileEditForm = profileEditPopup.querySelector("#edit-profile-for
 export const addCardForm = addCardPopup.querySelector("#add-card-form");
 export const viewCardImagePopup = document.querySelector("#view-image-popup");
 
+
 /* -------------------------------------------------------------------------- */
 /*                       // Buttons and other DOM nodes                       */
 /* -------------------------------------------------------------------------- */
@@ -42,6 +43,7 @@ export const profileEditButton = document.querySelector("#profile-edit-button");
 export const profileCloseButton = profileEditPopup.querySelector(
   "#editprofile-close-button"
 );
+export const profileImage = document.querySelector(".profile__image");
 export const profileTitle = document.querySelector(".profile__title");
 export const profileDescription = document.querySelector(
   ".profile__description"
@@ -95,3 +97,4 @@ export const cardsConfig = {
   containerSelector: ".cards__list",
   cardTemplateSelector: "#card-template",
 };
+

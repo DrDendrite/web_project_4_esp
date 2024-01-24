@@ -145,6 +145,18 @@
     right: auto;
     position: relative;
 }
+.popup__container-change{
+    background-color: #faf9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 430px;
+    border-radius: 10px;
+    left: auto;
+    right: auto;
+    position: relative;
+}
 
 .popup__save-button{
     background-color: #000;

@@ -17,6 +17,10 @@ import {
   addForm,
 } from "./utils/utils.js";
 
+
+
+
+
 /* -------------------------------------------------------------------------- */
 /*                                  Cards                                     */
 /* -------------------------------------------------------------------------- */
@@ -42,7 +46,6 @@ section.renderItems();
 /* -------------------------------------------------------------------------- */
 export const editFormValidator = new FormValidator(settings, editForm);
 export const addFormValidator = new FormValidator(settings, addForm);
-
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
@@ -108,3 +111,8 @@ const userInfo = new UserInfo({
 /* ------------------------------------------------------------------------ */
 const aroundMxImage = document.querySelector("#header__image");
 aroundMxImage.src = aroundMx;
+
+
+
+
+
