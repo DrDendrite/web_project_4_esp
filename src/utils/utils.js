@@ -1,100 +1,186 @@
-export const initialCards = [
-{
-  name: "Mazatlán, Sinaloa",
-  link: "https://images.unsplash.com/photo-1608920423186-174787ba2c27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80",
-},
-{
-  name: "Monte Alban, Oaxaca",
-  link: "https://images.unsplash.com/photo-1530455235907-0a59ea1e04ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1173&q=80",
-},
-{
-  name: "Chiapas",
-  link: "https://images.unsplash.com/photo-1630730041073-c75e98030355?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-},
-{
-  name: "Guadalajara, Jalisco",
-  link: "https://images.unsplash.com/photo-1565670105658-ea35d27f7de7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1025&q=80",
-},
-{
-  name: "Michoacán",
-  link: "https://images.unsplash.com/photo-1562218355-1fde5256182d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80",
-},
-{
-  name: "Cd. de México",
-  link: "https://images.unsplash.com/photo-1493794179168-82ca7cb00437?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80",
-},
-];
+import Card from "../components/Card.js";
+import {
+  elementsSectionCard,
+  modalExpandedImage,
+  modalExpandedImageCloseBtn,
+  btnEditInfoProfile,
+  inputName,
+  inputAboutMe,
+  btnOpenFormAddImage,
+  addPictureFormClose,
+  formChangeImage,
+  btnKeep,
+  inputChangeUrlImage,
+  settingElement,
+  apiKey,
+} from "./constants.js";
+import Popup from "../components/Popup.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import UserInfo from "../components/UserInfo.js";
+import Api from "../components/Api.js";
+import ModalConfirmAction from "../components/ModalConfirmAction.js";
+import ModalAvatarForm from "../components/ModalAvatarForm.js";
 
-/* -------------------------------------------------------------------------- */
-/*                                  Wrappers                                  */
-/* -------------------------------------------------------------------------- */
-export const cardsWrap = document.querySelector(".cards__list");
-export const profileEditPopup = document.querySelector("#profile-edit-popup");
-export const addCardPopup = document.querySelector("#add-card-popup");
-export const profileEditForm = profileEditPopup.querySelector("#edit-profile-form");
-export const addCardForm = addCardPopup.querySelector("#add-card-form");
-export const viewCardImagePopup = document.querySelector("#view-image-popup");
+export const api = new Api({ apiKey });
 
+export const modalConfirmAction = new ModalConfirmAction();
 
-/* -------------------------------------------------------------------------- */
-/*                       // Buttons and other DOM nodes                       */
-/* -------------------------------------------------------------------------- */
-export const profileEditButton = document.querySelector("#profile-edit-button");
-export const profileCloseButton = profileEditPopup.querySelector(
-  "#editprofile-close-button"
-);
-export const profileImage = document.querySelector(".profile__image");
-export const profileTitle = document.querySelector(".profile__title");
-export const profileDescription = document.querySelector(
-  ".profile__description"
-);
-export const cardListEl = document.querySelector(".cards__list");
-export const addCardButton = document.querySelector("#add-button");
-export const addCardCloseButton = addCardPopup.querySelector(
-  "#addcard-close-button"
-);
-export const addCardTitle = document.querySelector(".popup__title");
-export const addCardImageLink = document.querySelector(".popup__image-link");
-export const viewCardImage =
-  viewCardImagePopup.querySelector(".popup__image-view");
-export const viewCardImageCaption = document.querySelector(
-  ".popup__image-caption"
-);
-export const viewCardCloseButton = viewCardImagePopup.querySelector(
-  "#viewimage-close-button"
+const modalAvatarForm = new ModalAvatarForm();
+
+const popupFormProfile = new PopupWithForm("#edit-profile-form", editProfile);
+const popupEditProfile = new Popup("#edit-profile-form");
+
+export const userInfo = new UserInfo(
+  {
+    nameUserSelector: ".profile__info-name",
+    jobUserSelector: ".profile__info-about",
+    avatarSelector: ".profile__image",
+  },
+  api
 );
 
-/* -------------------------------------------------------------------------- */
-/*                                // Form Data                                */
-/* -------------------------------------------------------------------------- */
-export const profileTitleInput = document.querySelector(
-  ".popup__input_type_name"
-);
-export const profileDescriptionInput = document.querySelector(
-  ".popup__input_type_description"
-);
-export const cardTitleInput = addCardForm.querySelector(
-  ".popup__input_type_title"
-);
-export const cardUrlInput = addCardForm.querySelector(".popup__input_type_url");
-export const cardFormInputs = [cardTitleInput, cardUrlInput];
-export const cardFormSubmitButton = addCardForm.querySelector(
-  ".popup__save-button"
+/***Guarda la nueva imagén de perfil ***/
+function changeImage() {
+  modalAvatarForm.loadingAction(true);
+  formChangeImage.addEventListener("submit", (evt) => {
+    evt.preventDefault();
+    const newAvatarUrl = inputChangeUrlImage.value;
+    api
+      .updateAvatar(newAvatarUrl)
+      .then((res) => {
+        userInfo.setUserInfo({ avatar: newAvatarUrl });
+        modalAvatarForm.close();
+        return res;
+      })
+      .then(() => {
+        inputChangeUrlImage.value = "";
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        modalAvatarForm.loadingAction(false);
+        enableBtnPhotoProfile();
+      });
+  });
+}
+
+/***Abre y trae los datos del perfil.***/
+function openPopupProfile() {
+  popupFormProfile.open();
+
+  const currentUserInfo = userInfo.getUserInfo();
+
+  inputName.value = currentUserInfo.name;
+  inputAboutMe.value = currentUserInfo.about;
+}
+
+/*** Cambio de datos de perfil y que los valores nuevos queden guardados***/
+async function editProfile() {
+  userInfo.setUserInfo({
+    name: inputName.value,
+    about: inputAboutMe.value,
+  });
+
+  try {
+    popupFormProfile.loadingAction(true);
+    const res = await api.saveDataToServer(inputName.value, inputAboutMe.value);
+
+    enableBtn();
+
+    return res;
+  } catch (err) {
+    console.log(err);
+  } finally {
+    popupFormProfile.loadingAction(false);
+    popupEditProfile.close();
+  }
+}
+
+/**Cierre del modal image, se aplica al boton X ***/
+function closeModalExpandedImage() {
+  modalExpandedImage.classList.add("open");
+}
+
+function closeModal(evt) {
+  if (evt.key === "Escape") {
+    modalExpandedImage.classList.add("open");
+  }
+}
+
+/**Logíca para el formulario, agregar nuevas imágenes, abrir, cerrar y formatear ***/
+
+const popupFormAddPicture = new PopupWithForm(
+  "#add-picture-form",
+  saveNewImage
 );
 
-export const settings = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__save-button",
-  inactiveButtonClass: "popup__save-button-inactive",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-};
-export const editForm = document.querySelector("#edit-profile-form");
-export const addForm = document.querySelector("#add-card-form");
+function openPopupAddImage() {
+  enableBtn();
+  popupFormAddPicture.open();
+}
 
-export const cardsConfig = {
-  containerSelector: ".cards__list",
-  cardTemplateSelector: "#card-template",
-};
+function closePopupAddImage() {
+  popupFormAddPicture.close();
+}
 
+function saveNewImage() {
+  addNewCardElement();
+}
+
+async function addNewCardElement() {
+  const inputTitlePlace = document.querySelector("#title-place");
+  const inputNewImage = document.querySelector("#new-image");
+
+  const data = { name: inputTitlePlace.value, link: inputNewImage.value };
+
+  try {
+    popupFormAddPicture.loadingAction(true);
+    const response = await api.addNewCardToServer(data.name, data.link);
+
+    data.canBeDelete = true;
+    data._id = response._id;
+    const cardElement = new Card(data, {
+      api,
+      modalConfirmAction,
+    }).generateCard();
+
+    elementsSectionCard.prepend(cardElement);
+
+    inputTitlePlace.value = "";
+    inputNewImage.value = "";
+  } catch (err) {
+    console.log(err);
+    alert("Se ha producido un error");
+  } finally {
+    popupFormAddPicture.loadingAction(false);
+    popupFormAddPicture.close();
+  }
+}
+
+function enableBtn() {
+  const botton = document.querySelectorAll(settingElement.submitButtonSelector);
+  botton.forEach((evt) => {
+    evt.classList.add(settingElement.inactiveButtonClass);
+    evt.setAttribute("disabled", true);
+  });
+}
+
+function enableBtnPhotoProfile() {
+  btnKeep.classList.add(settingElement.inactiveButtonClass);
+  btnKeep.setAttribute("disabled", true);
+}
+
+export function addEventListeners() {
+  modalExpandedImageCloseBtn.addEventListener("click", closeModalExpandedImage);
+  modalExpandedImage.addEventListener("click", closeModalExpandedImage);
+  btnEditInfoProfile.addEventListener("click", openPopupProfile);
+  btnOpenFormAddImage.addEventListener("click", openPopupAddImage);
+  addPictureFormClose.addEventListener("click", closePopupAddImage);
+  btnKeep.addEventListener("click", changeImage);
+  document.addEventListener("keydown", closeModal);
+}
+
+popupFormProfile.setEventListeners();
+
+popupFormAddPicture.setEventListeners();

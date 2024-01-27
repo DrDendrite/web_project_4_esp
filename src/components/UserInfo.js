@@ -1,19 +1,24 @@
-const user = { Name: "", Description: "" };
 export default class UserInfo {
-  constructor(selectors) {
-    this.userName = document.querySelector(selectors.userName);
-    this.userDescription = document.querySelector(selectors.userDescription);
+  constructor({ nameUserSelector, jobUserSelector, avatarSelector }, api) {
+    this._nameSelector = document.querySelector(nameUserSelector);
+    this._jobSelector = document.querySelector(jobUserSelector);
+    this._avatarSelector = document.querySelector(avatarSelector);
+
+    this._api = api;
   }
 
   getUserInfo() {
     return {
-      name: this.userName.textContent,
-      description: this.userDescription.textContent,
+      name: this._nameSelector.textContent,
+      about: this._jobSelector.textContent,
     };
   }
 
-  setUserInfo(name, description) {
-    this.userName.textContent = name;
-    this.userDescription.textContent = description;
+  setUserInfo({ name, about, avatar }) {
+    if (name) this._nameSelector.textContent = name;
+
+    if (about) this._jobSelector.textContent = about;
+
+    if (avatar) this._avatarSelector.src = avatar;
   }
 }

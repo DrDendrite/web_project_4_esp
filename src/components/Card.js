@@ -1,64 +1,159 @@
+import PopupWhitImage from "./PopupWithImage.js";
+
 export default class Card {
-  constructor({ name, link }, cardSelector, handleCardClick) {
+  constructor(
+    { name, link, _id, canBeDelete, likes },
+    { api, modalConfirmAction },
+    userId
+  ) {
     this._name = name;
     this._link = link;
-    this._cardSelector = cardSelector;
-    this._handleCardClick = handleCardClick;
+    this._id = _id;
+    this._canBeDelete = canBeDelete;
+    this._likes = likes;
+    this._userId = userId;
+
+    this._popupWithImage = new PopupWhitImage(".modal");
+    this._api = api;
+    this._modalConfirmAction = modalConfirmAction;
   }
 
-  _getTemplate() {
-    return document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card")
+  _getTemplateCard() {
+    const cardTemplete = document.querySelector("#card-template").content;
+    const cardElement = cardTemplete
+      .querySelector(".elements__card-container")
       .cloneNode(true);
+
+    return cardElement;
+  }
+
+  async _handleLikeIconToServer() {
+    this.likeBtn.classList.toggle(
+      "elements__card-container-footing-btn_active"
+    );
+
+    try {
+      if (
+        this.likeBtn.classList.contains(
+          "elements__card-container-footing-btn_active"
+        )
+      ) {
+        const result = await this._api.addLikeFromCard(this._id);
+
+        this.likeBtn.classList.add(
+          "elements__card-container-footing-btn_active"
+        );
+        this.likesCountElement.textContent = result.likes.length;
+      } else {
+        const resultDelete = await this._api.deleteLikeFromCard(this._id);
+        this.likeBtn.classList.remove(
+          "elements__card-container-footing-btn_active"
+        );
+        this.likesCountElement.textContent = resultDelete.likes.length;
+      }
+
+      this._updateLikesDisplay();
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  _updateLikesDisplay() {
+    const likesCount = parseInt(this.likesCountElement.textContent);
+    if (likesCount === 0) {
+      this.likesCountElement.style.display = "none";
+    } else {
+      this.likesCountElement.style.display = "inline-block";
+    }
+  }
+
+  _handleOpenExpandedImage() {
+    this._popupWithImage.open(this._link, this._name);
+  }
+
+  _deleteCard() {
+    this._modalConfirmAction.loadingAction(true);
+    this._api
+      .deleteCardFromServer(this._id)
+      .then(() => {
+        this.element.remove();
+        this._modalConfirmAction.close();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        this._modalConfirmAction.loadingAction(false);
+      });
   }
 
   _setEventListeners() {
-    //".card__like-button"
-    this._cardElement
-      .querySelector(".card__like-button")
-      .addEventListener("click", () => {
-        this._handleLikeIcon();
-      });
-
-    //".card__delete-button"
-    this._cardElement
-      .querySelector(".card__delete-button")
-      .addEventListener("click", () => {
-        this._handleDeleteCard();
-      });
-
-    this._cardImageEl.addEventListener("click", () => {
-      this._handleCardClick(this._name, this._link);
+    this.likeBtn.addEventListener("click", () => {
+      this._handleLikeIconToServer();
     });
+
+    this.elementImageCard.addEventListener("click", () => {
+      this._handleOpenExpandedImage();
+    });
+
+    if (this._canBeDelete) {
+      this.btnDelete = this.element.querySelector(
+        ".elements__card-container-btn-delete"
+      );
+
+      this.btnDelete.addEventListener("click", () => {
+        this._modalConfirmAction.open(this._deleteCard.bind(this));
+      });
+    } else {
+      const deleteBtn = this.element.querySelector(
+        ".elements__card-container-btn-delete"
+      );
+
+      deleteBtn.style.display = "none";
+    }
   }
 
-  _handleLikeIcon() {
-    this._cardElement
-      .querySelector(".card__like-button")
-      .classList.toggle("card__like-button_active");
-  }
+  generateCard() {
+    this.element = this._getTemplateCard();
+    this.likeBtn = this.element.querySelector(
+      ".elements__card-container-footing-btn"
+    );
 
-  _handleDeleteCard() {
-    this._cardElement.remove();
-  }
+    this.elementImageCard = this.element.querySelector(
+      ".elements__card-container-image"
+    );
 
-  _handleViewCardImage() {
-    this._cardImageEl.src = this._link;
-    this._cardImageEl.alt = this._name;
-    this._cardTitleEl.textContent = this._name;
-  }
+    this.elementTitleCard = this.element.querySelector(
+      ".elements__card-container-footing-title"
+    );
 
-  getView() {
-    this._cardElement = this._getTemplate();
+    this.likesCountElement = this.element.querySelector(
+      ".elements__like-counter"
+    );
 
-    this._cardImageEl = this._cardElement.querySelector(".card__image");
-    this._cardTitleEl = this._cardElement.querySelector(".card__title");
+    this.likesCountElement.textContent = this._likes.length;
 
-    this._handleViewCardImage();
+    if (this.likesCountElement.textContent === "0") {
+      this.likesCountElement.style.display = "none";
+    } else {
+      const myLike = this._likes.find((evt) => {
+        return evt._id === this._userId;
+      });
+
+      if (myLike) {
+        this.likeBtn.classList.add(
+          "elements__card-container-footing-btn_active"
+        );
+      }
+    }
 
     this._setEventListeners();
 
-    return this._cardElement;
+    this.elementImageCard.src = this._link;
+    this.elementImageCard.alt = this._name;
+    this.elementTitleCard.textContent = this._name;
+    this.element.setAttribute("data-id", this._id);
+
+    return this.element;
   }
 }

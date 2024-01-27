@@ -1,118 +1,66 @@
-import "./page/index.css";
-import aroundMx from "./images/around-mex.png";
+import "./styles/index.css";
 import Card from "./components/Card.js";
-import FormValidator from "./components/FormValidator.js";
-import Section from "./components/Section.js";
-import PopupWithForm from "./components/PopupWithForm.js";
-import PopupWithImage from "./components/PopupWithImage.js";
-import UserInfo from "./components/UserInfo.js";
+import FormValidator from "../src/pages/FormValidator.js";
+import Section from "../src/components/Section.js";
+import { settingElement, selector } from "../src/utils/constants.js";
 import {
-  initialCards,
-  profileEditButton,
-  addCardButton,
-  profileTitleInput,
-  profileDescriptionInput,
-  settings,
-  editForm,
-  addForm,
-} from "./utils/utils.js";
+  addEventListeners,
+  api,
+  modalConfirmAction,
+  userInfo,
+} from "../src/utils/utils.js";
 
+(async function () {
+  const cards = await api.getCards();
+  const userInfoFromServer = await api.getUserInfoFromServer();
+  const userId = userInfoFromServer._id;
 
+  const renderInitialCards = new Section(
+    {
+      items: cards.map((card) => {
+        const canBeDelete = card.owner._id == userId;
 
+        return {
+          name: card.name,
+          link: card.link,
+          _id: card._id,
+          canBeDelete: canBeDelete,
+          likes: card.likes,
+        };
+      }),
+      renderer: (cardItem) => {
+        const card = new Card(cardItem, { api, modalConfirmAction }, userId);
+        const cardElement = card.generateCard();
 
+        renderInitialCards.addItem(cardElement);
+      },
+    },
+    selector
+  );
 
-/* -------------------------------------------------------------------------- */
-/*                                  Cards                                     */
-/* -------------------------------------------------------------------------- */
+  renderInitialCards.renderer();
 
-function renderCard(cardData) {
-  const card = new Card(cardData, "#card-template", (name, link) => {
-    viewImagePopup.open({ name, link });
-  });
-  return card.getView();
-}
+  (function init() {
+    const formList = Array.from(
+      document.querySelectorAll(".popup__container-form")
+    );
+    formList.push(document.querySelector(".modal-window__form-change-image"));
 
-const section = new Section({
-  items: initialCards,
-  renderer: (cardData) => {
-    const card = renderCard(cardData);
-    section.addItem(card);
-  },
-});
-section.renderItems();
+    formList.forEach((formElement) => {
+      const formValidator = new FormValidator(settingElement, formElement);
+      formValidator.enableValidation();
+    });
 
-/* -------------------------------------------------------------------------- */
-/*                                 Validation                                 */
-/* -------------------------------------------------------------------------- */
-export const editFormValidator = new FormValidator(settings, editForm);
-export const addFormValidator = new FormValidator(settings, addForm);
-editFormValidator.enableValidation();
-addFormValidator.enableValidation();
+    async function infoProfile() {
+      userInfo.setUserInfo({
+        name: userInfoFromServer.name,
+        about: userInfoFromServer.about,
+        avatar: userInfoFromServer.avatar,
+      });
+    }
 
-/* -------------------------------------------------------------------------- */
-/*                               PopupWithImage                               */
-/* -------------------------------------------------------------------------- */
+    infoProfile();
+  })();
 
-const viewImagePopup = new PopupWithImage("#view-image-popup");
-viewImagePopup.setEventListeners();
-
-/* ------------------------------------------------------------------------------- */
-/*                                PopupWithForm                                    */
-/* ------------------------------------------------------------------------------- */
-
-//edit profile popup
-const handleProfileEditSubmit = (inputValues) => {
-  userInfo.setUserInfo(inputValues.name, inputValues.about);
-
-  editProfilePopup.close();
-};
-const editProfilePopup = new PopupWithForm(
-  "#profile-edit-popup",
-  handleProfileEditSubmit
-);
-
-
-editProfilePopup.setEventListeners();
-
-profileEditButton.addEventListener("click", () => {
-  const updatedUserInfo = userInfo.getUserInfo();
-  profileTitleInput.value = "";
-  profileDescriptionInput.value = "";
-  editProfilePopup.open();
-});
-
-//add card popup
-
-const handleAddCardFormSubmit = (inputValues) => {
-  const card = renderCard(inputValues);
-  section.addItem(card);
-  newCardPopup.close();
-};
-
-const newCardPopup = new PopupWithForm(
-  "#add-card-popup",
-  handleAddCardFormSubmit
-);
-newCardPopup.setEventListeners();
-
-addCardButton.addEventListener("click", () => {
-  addFormValidator.toggleButtonState();
-  newCardPopup.open();
-});
-
-/* ------------------------------------------------------------------------ */
-/*                                 User Info                                */
-/* ------------------------------------------------------------------------ */
-const userInfo = new UserInfo({
-  userName: ".profile__title",
-  userDescription: ".profile__description",
-});
-
-/* ------------------------------------------------------------------------ */
-const aroundMxImage = document.querySelector("#header__image");
-aroundMxImage.src = aroundMx;
-
-
-
-
-
+  addEventListeners();
+})();
