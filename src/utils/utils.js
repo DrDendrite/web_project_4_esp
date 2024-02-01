@@ -39,7 +39,7 @@ export const userInfo = new UserInfo(
   api
 );
 
-/***Guarda la nueva imagén de perfil ***/
+/**Guarda la nueva imagén de perfil */
 function changeImage() {
   modalAvatarForm.loadingAction(true);
   formChangeImage.addEventListener("submit", (evt) => {
@@ -65,7 +65,7 @@ function changeImage() {
   });
 }
 
-/***Abre y trae los datos del perfil.***/
+/***Abre y trae los datos del contenedor de perfil.*/
 function openPopupProfile() {
   popupFormProfile.open();
 
@@ -75,7 +75,7 @@ function openPopupProfile() {
   inputAboutMe.value = currentUserInfo.about;
 }
 
-/*** Cambio de datos de perfil y que los valores nuevos queden guardados***/
+/*** Cambio de datos al editar perfil y queden almacenado los valores nuevos*/
 async function editProfile() {
   userInfo.setUserInfo({
     name: inputName.value,
@@ -97,7 +97,7 @@ async function editProfile() {
   }
 }
 
-/**Cierre del modal image, se aplica al boton X ***/
+/**Cierre del modal de expandedImage, se aplica al boton X */
 function closeModalExpandedImage() {
   modalExpandedImage.classList.add("open");
 }
@@ -108,7 +108,7 @@ function closeModal(evt) {
   }
 }
 
-/**Logíca para el formulario, agregar nuevas imágenes, abrir, cerrar y formatear ***/
+/**Logíca para el formulario, agregar nuevas imágenes, abrir, cerrar y formatear */
 
 const popupFormAddPicture = new PopupWithForm(
   "#add-picture-form",
@@ -140,10 +140,10 @@ async function addNewCardElement() {
 
     data.canBeDelete = true;
     data._id = response._id;
-    const cardElement = new Card(data, {
-      api,
-      modalConfirmAction,
-    }).generateCard();
+    data.likes = response.likes;
+
+    const card = new Card(data, { api, modalConfirmAction }, response.owner._id);
+    const cardElement = card.generateCard();
 
     elementsSectionCard.prepend(cardElement);
 

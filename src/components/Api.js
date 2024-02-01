@@ -67,10 +67,11 @@ export default class Api {
           "https://around.nomoreparties.co/v1/web_es_10/cards",
           "POST",
           {
-            name: name,
-            link: link,
+           name: name,
+            link: link
           }
         );
+  
         return res;
       } catch (err) {
         console.log(err);
