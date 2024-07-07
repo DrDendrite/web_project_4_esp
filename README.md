@@ -11,5 +11,3 @@ Por ultimo al boton de agregar nueva imagen se le dio funcionalidad para que apa
 - HTML
 - CSS
 - JavaScript
-
-https://drdendrite.github.io/web_project_4_esp/
