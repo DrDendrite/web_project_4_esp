@@ -1,0 +1,15 @@
+.profile__add-btn-image {
+    width: 150px;
+    height: 52px;
+    pointer-events: none;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 898px) {
+    .profile__add-btn-image {
+        width: 280px;
+        height: 50px;
+    }
+}

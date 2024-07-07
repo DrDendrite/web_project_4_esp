@@ -1,0 +1,21 @@
+.elements {
+    min-height: 800px;
+     display: flex;
+     flex-wrap: wrap;
+     width: 880px;
+ }
+ 
+ @media screen and (min-width: 320px) and (max-width: 898px) {
+     .elements {
+         flex-direction: column;
+         width: 320px;
+     }
+ }
+
+ @media screen and (min-width: 899px) and (max-width: 1440px) {
+    .elements {
+        margin-left: auto;
+        width: 680px;
+    }
+    
+ }
