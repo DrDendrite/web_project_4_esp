@@ -14,3 +14,9 @@
       top: 20px;
     }
   }
+
+  @media screen and (min-width: 899px) and (max-width: 1439px){
+    .modal-window__container {
+      margin-left: 400px;
+    }
+  }

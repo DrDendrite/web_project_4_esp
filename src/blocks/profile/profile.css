@@ -10,3 +10,11 @@
         width: 320px;
     }
 }
+
+@media screen and (min-width: 899px) and (max-width: 1439px) {
+    .profile {
+        flex-direction: row;
+        margin-left: 100px;        
+    }
+    
+}

@@ -14,3 +14,10 @@
       margin: 10px 40px 0 40px;
     }
   }
+
+  @media screen and (min-width: 899px) and (max-width: 1439px){
+    .modal__title-text {
+      width: 291px;
+      margin-left: 70px;
+    }
+  }

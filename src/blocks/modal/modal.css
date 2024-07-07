@@ -20,3 +20,9 @@
       width: auto;
     }
   }
+
+  @media screen and (min-width: 899px) and (max-width: 1439px){
+    .modal {
+      width: auto;
+    }
+  }
